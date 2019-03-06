@@ -1,0 +1,3 @@
+<launch>
+  <param name="robot_description" textfile="$(find gundam_rx78_description)/urdf/GGC_TestModel_rx78_20170112.urdf" />
+</launch>

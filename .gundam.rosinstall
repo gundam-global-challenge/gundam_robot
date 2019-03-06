@@ -1,0 +1,7 @@
+- git:
+    local-name: gundam_robot
+    uri: https://github.com/gundam-global-challenge/gundam_robot
+- git:
+    local-name: roboticsgroup_gazebo_plugins
+    uri: https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins
+                

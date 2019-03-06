@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gundam_rx78_gazebo</name>
+  <version>0.0.0</version>
+  <description>gundam_rx78_gazebo contains launch scripts for simulating the GUNDAM RX-78 robot in the gazebo simulation</description>
+
+  <maintainer email="kei.okada@gmail.com">Kei Okada</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/gundam_rx78_gazebo</url>
+
+  <author email="kei.okada@gmail.com">Kei Okada</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>fake_localization</exec_depend>
+  <exec_depend>gazebo_plugins</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros_control</exec_depend>
+  <exec_depend>gundam_rx78_description</exec_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export/>
+
+</package>
