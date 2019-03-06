@@ -1,0 +1,442 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+# Position Controllers ---------------------------------------
+lleg_ankle_p_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_ankle_p
+  pid: {p: 100, i: 0.01, d: 10}
+lleg_crotch_p_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_crotch_p
+  pid: {p: 100, i: 0.01, d: 10}
+lleg_crotch_y_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_crotch_y
+  pid: {p: 100, i: 0.01, d: 10}
+lleg_knee_p_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_knee_p
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_shoulder_p_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_shoulder_p
+  pid: {p: 100, i: 0.01, d: 10}
+lleg_ankle_r_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_ankle_r
+  pid: {p: 100, i: 0.01, d: 10}
+larm_gripper_position:
+  type: position_controllers/JointPositionController
+  joint: larm_gripper
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_elbow_p_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_elbow_p
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_shoulder_r_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_shoulder_r
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_shoulder_y_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_shoulder_y
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_wrist_y_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_wrist_y
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_wrist_r_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_wrist_r
+  pid: {p: 100, i: 0.01, d: 10}
+larm_wrist_y_position:
+  type: position_controllers/JointPositionController
+  joint: larm_wrist_y
+  pid: {p: 100, i: 0.01, d: 10}
+larm_wrist_r_position:
+  type: position_controllers/JointPositionController
+  joint: larm_wrist_r
+  pid: {p: 100, i: 0.01, d: 10}
+larm_shoulder_p_position:
+  type: position_controllers/JointPositionController
+  joint: larm_shoulder_p
+  pid: {p: 100, i: 0.01, d: 10}
+larm_shoulder_r_position:
+  type: position_controllers/JointPositionController
+  joint: larm_shoulder_r
+  pid: {p: 100, i: 0.01, d: 10}
+larm_elbow_p_position:
+  type: position_controllers/JointPositionController
+  joint: larm_elbow_p
+  pid: {p: 100, i: 0.01, d: 10}
+larm_shoulder_y_position:
+  type: position_controllers/JointPositionController
+  joint: larm_shoulder_y
+  pid: {p: 100, i: 0.01, d: 10}
+lleg_crotch_r_position:
+  type: position_controllers/JointPositionController
+  joint: lleg_crotch_r
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_ankle_p_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_ankle_p
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_crotch_p_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_crotch_p
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_knee_p_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_knee_p
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_crotch_y_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_crotch_y
+  pid: {p: 100, i: 0.01, d: 10}
+torso_waist_p_position:
+  type: position_controllers/JointPositionController
+  joint: torso_waist_p
+  pid: {p: 100, i: 0.01, d: 10}
+head_neck_p_position:
+  type: position_controllers/JointPositionController
+  joint: head_neck_p
+  pid: {p: 100, i: 0.01, d: 10}
+head_neck_y_position:
+  type: position_controllers/JointPositionController
+  joint: head_neck_y
+  pid: {p: 100, i: 0.01, d: 10}
+torso_waist_y_position:
+  type: position_controllers/JointPositionController
+  joint: torso_waist_y
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_ankle_r_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_ankle_r
+  pid: {p: 100, i: 0.01, d: 10}
+rarm_gripper_position:
+  type: position_controllers/JointPositionController
+  joint: rarm_gripper
+  pid: {p: 100, i: 0.01, d: 10}
+rleg_crotch_r_position:
+  type: position_controllers/JointPositionController
+  joint: rleg_crotch_r
+  pid: {p: 100, i: 0.01, d: 10}
+
+
+
+
+# Note: You MUST load these PID parameters for all joints that are using the
+# PositionJointInterface, otherwise the arm + gripper will act like a giant
+# parachute, counteracting gravity, and causing some of the wheels to lose
+# contact with the ground, so the robot won't be able to properly navigate. See
+# https://github.com/ros-simulation/gazebo_ros_pkgs/issues/612
+
+### https://github.com/mintar/mimic_joint_gazebo_tutorial/blob/kinetic/config/gazebo/gazebo_controller.yaml
+
+# the following gains are used by the gazebo_mimic_joint plugin
+gazebo_ros_control:
+  pid_gains:
+    rx78_Null_038_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_034_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_030_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_031_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_032_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_033_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_040_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_047_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_046_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_058_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_053_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_056_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_057_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_066_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_064_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_063_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_062_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_061_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_060_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_068_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_088_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_084_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_080_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_070_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_071_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_072_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_073_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_074_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_075_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_076_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_077_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_078_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_079_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_016_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_090_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_023_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_022_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_027_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_026_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_025_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_024_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_029_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
+    rx78_Null_028_joint:
+      p: 100
+      i: 0.01
+      d: 10
+      i_clamp: 1
+      antiwindup: false
+      publish_state: true
