@@ -351,8 +351,7 @@ def add_gazebo_nodes(robot):
             continue
 
         # joint parent and children needs physical properties
-        for l in set([l for l in robot.links if l.name in [j.parent, j.child]] + robot.links):
-        # for l in [ l for l in robot.links if l.name in [j.parent, j.child] ]:
+        for l in [ l for l in robot.links if l.name in [j.parent, j.child] ]:
             g = etree.Element('gazebo', reference=l.name)
             etree.SubElement(g, 'selfCollide').text = 'false'
             # etree.SubElement(g, 'mu1').text = '0.2'
