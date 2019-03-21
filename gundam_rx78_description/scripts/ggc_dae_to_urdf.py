@@ -241,7 +241,7 @@ def retrive_node(nodes, parent=None):
                         if any(type(n) == scene.RotateTransform for n in node.transforms):
                             j.axis = [1, 0, 0]
                         j.limit = JointLimit(
-                            lower=-math.pi / 2, upper=math.pi / 2, effort=10000000, velocity=1000000)
+                            lower=-math.pi / 2, upper=math.pi / 2, effort=1000000000, velocity=1000000)
                     #
                     if joints_.has_key(node.id):
                         if joints_[node.id].has_key('joint_type'):
@@ -251,7 +251,7 @@ def retrive_node(nodes, parent=None):
                                 j.axis = None
                             else:
                                 j.limit = JointLimit(
-                                    lower=-math.pi / 2, upper=math.pi / 2, effort=10000000, velocity=1000000)
+                                    lower=-math.pi / 2, upper=math.pi / 2, effort=1000000000, velocity=1000000)
                                 j.dynamics = JointDynamics(
                                     damping='0.1', friction='0.0')
                         if joints_[node.id].has_key('axis'):
