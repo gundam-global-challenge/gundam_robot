@@ -509,7 +509,7 @@ def write_control_file():
             '  publish_rate: 50\n'
             '\n')
     f.write('# Position Controllers ---------------------------------------\n')
-    for j in joints_.values():
+    for i, j in joints_.items():
         if j.has_key('name'):
             f.write('%s_position:\n' % j['name'])
             f.write('  type: %s_controllers/JointPositionController\n' %
@@ -519,6 +519,23 @@ def write_control_file():
                 f.write('  pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
             else:
                 f.write('  pid: {p: 1000000.0, i: 500.0, d: 200000.0}\n')
+            # for mimic joints
+            if not args.no_mimic:
+                has_mimic_joints = False
+                for ii, jj in joints_.items():
+                    if jj.has_key('mimic') and jj['mimic'] == i:
+                        if not has_mimic_joints:
+                            f.write('  mimic_joints:\n')
+                            has_mimic_joints = True
+                        f.write('    %s_joint_position:\n' % ii)
+                        f.write('      type: %s_controllers/JointPositionController\n' % args.controller_type)
+                        f.write('      joint: %s_joint\n' % ii)
+                        if jj.has_key('pid'):
+                            f.write('      pid: {p: %f, i: %f, d: %f}\n' % (jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
+                        elif j.has_key('pid'):
+                            f.write('      pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
+                        else:
+                            f.write('      pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
     # f.write('# JointTrajectoryAction Controllers ---------------------------------------\n'
     #         'position_trajectory_controller:\n'
     #         '    type: "effort_controllers/JointTrajectoryController"\n'
