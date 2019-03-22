@@ -444,6 +444,29 @@ def add_gazebo_nodes(robot):
             g.append(p)
             robot.add_aggregate('gazebo', g)
 
+    # GGC HACK
+    for l in robot.links:
+        # elbow_p center of mass and joint axis needs displacement
+        if l.name in ['rx78_object_076_link', 'rx78_object_062_link']:
+            l.inertial.origin.xyz[2] += -1.0
+            l.inertial.mass = l.inertial.mass*1.5
+        # knee_p
+        if l.name in ['rx78_object_023_link', 'rx78_object_041_link']:
+            l.inertial.origin.xyz[2] += -1.25
+            l.inertial.mass = l.inertial.mass*1.5
+        # ankle_r
+        if l.name in ['rx78_object_089_link', 'rx78_object_032_link']: # back sole
+            l.inertial.origin.xyz[0] +=  0.55
+            l.inertial.origin.xyz[2] += -0.35
+            l.inertial.mass = l.inertial.mass*5
+        if l.name in ['rx78_object_034_link', 'rx78_object_091_link']: # front sole
+            l.inertial.origin.xyz[0] -=  0.4
+            l.inertial.origin.xyz[2] += -0.6
+        # ankle cover
+        if l.name in ['rx78_object_021_link', 'rx78_object_039_link']: # ankle cover
+            l.inertial.origin.xyz[1] -=  0.8
+            l.inertial.origin.xyz[2] +=  0.5
+
     robot.add_aggregate('gazebo', etree.fromstring('<gazebo>'
                                                    '<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">'
                                                    '<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>'
