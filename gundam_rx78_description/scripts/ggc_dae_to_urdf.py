@@ -385,12 +385,15 @@ def add_gazebo_nodes(robot):
             # avoid null link for crotch_p ** GGC HACK
             if l.name == 'rx78_Null_035_link':
                 l.collision = Collision(origin=Pose(xyz=[-0.5,0,0]), geometry=Box(size=[1.0, 0.8, 0.8]))
+                l.inertial = calc_inertia(l.collision, 400)
             if l.name == 'rx78_Null_085_link':
                 l.collision = Collision(origin=Pose(xyz=[ 0.5,0,0]), geometry=Box(size=[1.0, 0.8, 0.8]))
+                l.inertial = calc_inertia(l.collision, 400)
 
             if l.collision == None:
                 l.collision = Collision(geometry=Box(size=[0.2, 0.2, 0.2]))
-            l.inertial = calc_inertia(l.collision)
+            if l.inertial == None:
+                l.inertial = calc_inertia(l.collision)
 
         # actuated joint
         if j.mimic == None:
