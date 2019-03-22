@@ -520,7 +520,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', help='input collada file name')
     parser.add_argument('--controller_type', choices=[
-                        'position', 'velocity', 'effort'], default='position', help='set controller type')
+                        'position', 'velocity', 'effort'], default='effort', help='set controller type')
     parser.add_argument(
         '--no_mimic', action='store_true', help='disable mimic joint')
     parser.add_argument(
