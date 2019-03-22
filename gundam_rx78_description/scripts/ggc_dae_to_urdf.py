@@ -518,7 +518,7 @@ def write_control_file():
             if j.has_key('pid'):
                 f.write('  pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
             else:
-                f.write('  pid: {p: 1000000.0, i: 500.0, d: 200000.0}\n')
+                f.write('  pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
             # for mimic joints
             if not args.no_mimic:
                 has_mimic_joints = False
