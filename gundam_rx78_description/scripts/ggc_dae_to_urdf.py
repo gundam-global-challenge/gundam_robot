@@ -374,7 +374,7 @@ def add_gazebo_nodes(robot):
             etree.SubElement(g, 'mu1').text = '9000'
             etree.SubElement(g, 'mu2').text = '1.5'
             # sole links ** GGC HACK
-            if l.name in ["rx78_object_034_link", "rx78_object_091_link"]:
+            if l.name in ["rx78_object_034_link", "rx78_object_091_link", 'rx78_object_089_link', 'rx78_object_032_link']:
                 etree.SubElement(g, 'kp').text = '100000.0'
                 etree.SubElement(g, 'kd').text = '100.0'
                 etree.SubElement(g, 'fdir1').text = '1 0 0'
