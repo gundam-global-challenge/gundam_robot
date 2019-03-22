@@ -514,57 +514,6 @@ def write_control_file():
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
                         else:
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
-    # f.write('# JointTrajectoryAction Controllers ---------------------------------------\n'
-    #         'position_trajectory_controller:\n'
-    #         '    type: "effort_controllers/JointTrajectoryController"\n'
-    #         '    joints:\n')
-    # for j in joints_.values():
-    #     if j.has_key('name'):
-    #         f.write('      - %s\n' % j['name'])
-    # f.write('    constraints:\n')
-    # f.write('      goal_time: 1.0                   # Defaults to zero\n')
-    # f.write('      stopped_velocity_tolerance: 0.03 # Defaults to 0.01\n')
-    # for j in joints_.values():
-    #     if j.has_key('name'):
-    #         f.write('      %s:\n' % j['name'])
-    #         f.write('        trajectory: 0.05\n')
-    #         f.write('        goal: 0.02\n')
-    # f.write('    gains: # Needed to map position+velocity commands to an effort command\n')
-    # for j in joints_.values():
-    #     if j.has_key('name'):
-    #         f.write('      %s: {p: 50,  i: 0, d: 0}\n' % j['name'])
-    # f.write('    state_publish_rate:  25 # Defaults to 50\n')
-    # f.write('    action_monitor_rate: 10 # Defaults to 20\n')
-
-    # gravity bug only required for mimic plugin or position controller
-    if not (args.no_mimic or args.controller_type == 'position'):
-        return
-    # gravity bug in mimic joint
-    # (https://github.com/mintar/mimic_joint_gazebo_tutorial)
-    f.write('\n\n\n\n'
-            '# Note: You MUST load these PID parameters for all joints that are using the\n'
-            '# PositionJointInterface, otherwise the arm + gripper will act like a giant\n'
-            '# parachute, counteracting gravity, and causing some of the wheels to lose\n'
-            "# contact with the ground, so the robot won't be able to properly navigate. See\n"
-            '# https://github.com/ros-simulation/gazebo_ros_pkgs/issues/612\n'
-            '\n'
-            '### https://github.com/mintar/mimic_joint_gazebo_tutorial/blob/kinetic/config/gazebo/gazebo_controller.yaml\n'
-            '\n'
-            '# the following gains are used by the gazebo_mimic_joint plugin\n'
-            'gazebo_ros_control:\n'
-            '  pid_gains:\n')
-    for i, j in joints_.items():
-        # intentionally commented out, slow gravity is ok for now
-        # if args.controller_type == 'position' and j.has_key('name'):
-        #     f.write('    %s: {p: 1000, i: 0.1, d: 100}\n' % j['name'])
-        if j.has_key('mimic'):  # mimic joints
-            f.write('    %s_joint:\n' % i)
-            f.write('      p: 100\n')
-            f.write('      i: 0.01\n')
-            f.write('      d: 10\n')
-            f.write('      i_clamp: 1\n')
-            f.write('      antiwindup: false\n')
-            f.write('      publish_state: true\n')
 
 global robot, args
 if __name__ == '__main__':
