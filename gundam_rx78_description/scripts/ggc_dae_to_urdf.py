@@ -42,6 +42,8 @@ import argparse
 depth_ = 0
 scale_ = 0.1  # original file uses cm unit
 all_weight_ = 0.0
+zero_pid     = {'p':          0.0, 'i':          0.0, 'd':          0.0}
+default_pid  = {'p':    1000000.0, 'i':        500.0, 'd':     200000.0}
 torso_pid    = {'p':   20000000.0, 'i':      10000.0, 'd':    2000000.0}
 wrist_pid    = {'p':     100000.0, 'i':         50.0, 'd':      20000.0}
 gripper_pid  = {'p':       5000.0, 'i':        100.0, 'd':       1000.0}
@@ -50,6 +52,7 @@ crotch_r_pid = {'p':   20000000.0, 'i':    1000000.0, 'd':    1000000.0}
 crotch_y_pid = {'p':   20000000.0, 'i':    1000000.0, 'd':    1000000.0}
 knee_p_pid   = {'p':   10000000.0, 'i':     100000.0, 'd':    1000000.0}
 ankle_pid    = {'p':   10000000.0, 'i':       5000.0, 'd':    1000000.0}
+cover_pid    = {'p':      50000.0, 'i':        500.0, 'd':       5000.0}
 joints_ = {
     # axis [pitch, roll, yaw]
     # backpack
@@ -128,9 +131,9 @@ joints_ = {
       'rx78_Null_080': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
 
     # lleg
-    'rx78_Null_033': {'mimic': 'rx78_Null_035', 'mimic_multiplier': 0.5},  # back cover
-    'rx78_Null_034': {'mimic': 'rx78_Null_035', 'mimic_multiplier': 0.5},  # front cover
-    'rx78_Null_047': {'mimic': 'rx78_object_029', 'mimic_multiplier': -0.5, 'axis': [0, 1, 0]},  # side cover
+    'rx78_Null_033': {'mimic': 'rx78_Null_035', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # back cover
+    'rx78_Null_034': {'mimic': 'rx78_Null_035', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # front cover
+    'rx78_Null_047': {'mimic': 'rx78_object_029', 'mimic_multiplier': -0.6, 'axis': [0, 1, 0], 'pid': cover_pid},  # side cover
     'rx78_Null_035': {'name': 'lleg_crotch_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': crotch_p_pid},
     'rx78_object_029': {'name': 'lleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 4, 'pid': crotch_r_pid},  # hack for crotch-r _035->_029->_036
     'rx78_Null_036': {'name': 'lleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_029', 'pid': crotch_y_pid},
@@ -147,9 +150,9 @@ joints_ = {
     'rx78_Null_046': {'mimic': 'rx78_Null_039', 'mimic_multiplier': -0.5, 'axis': [1, 0, 0]},  # ankle cover
 
     # rleg
-    'rx78_Null_084': {'mimic': 'rx78_Null_085', 'mimic_multiplier': 0.5},  # front cover
-    'rx78_Null_031': {'mimic': 'rx78_Null_085', 'mimic_multiplier': 0.5},  # back cover
-    'rx78_Null_032': {'mimic': 'rx78_object_086', 'mimic_multiplier': -0.5, 'axis': [0, 1, 0]},  # side cover
+    'rx78_Null_084': {'mimic': 'rx78_Null_085', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # front cover
+    'rx78_Null_031': {'mimic': 'rx78_Null_085', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # back cover
+    'rx78_Null_032': {'mimic': 'rx78_object_086', 'mimic_multiplier': -0.6, 'axis': [0, 1, 0], 'pid': cover_pid},  # side cover
     'rx78_Null_085': {'name': 'rleg_crotch_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': crotch_p_pid},
     'rx78_object_086': {'name': 'rleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 12, 'pid': crotch_r_pid},  # hack for crotch-r _085->_086->_086
     'rx78_Null_086': {'name': 'rleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_086', 'pid': crotch_y_pid},
