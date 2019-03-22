@@ -396,7 +396,7 @@ def add_gazebo_nodes(robot):
                 l.inertial = calc_inertia(l.collision)
 
         # actuated joint
-        if j.mimic == None:
+        if not args.no_mimic or j.mimic == None:
             # add extra info for actuated joints
             g = etree.Element('gazebo', reference=j.name)
             etree.SubElement(g, 'provideFeedback').text = '1'
@@ -421,28 +421,6 @@ def add_gazebo_nodes(robot):
             trans.add_aggregate('actuator', act)
             trans.type = "transmission_interface/SimpleTransmission"
             robot.add_aggregate('transmission', trans)
-        elif not args.no_mimic:
-            # mimic joint plugins
-            # https://github.com/mintar/mimic_joint_gazebo_tutorial
-            p = etree.Element(
-                'plugin', filename='libroboticsgroup_gazebo_mimic_joint_plugin.so', name=j.name + '_mimic_joint_plugin')
-            etree.SubElement(p, 'joint').text = j.mimic.joint
-            etree.SubElement(p, 'mimicJoint').text = j.name
-            if j.mimic.multiplier:
-                etree.SubElement(p, 'multiplier').text = str(
-                    j.mimic.multiplier)
-            else:
-                etree.SubElement(p, 'multiplier').text = '1.0'
-            if j.mimic.offset:
-                etree.SubElement(p, 'offset').text = str(j.mimic.offset)
-            else:
-                etree.SubElement(p, 'offset').text = '0.0'
-            etree.SubElement(p, 'sensitiveness').text = '0.0'
-            etree.SubElement(p, 'maxEffort').text = '100000.0'
-            etree.SubElement(p, 'hasPID')  # mimic joint gravity bug
-            g = etree.Element('gazebo')
-            g.append(p)
-            robot.add_aggregate('gazebo', g)
 
     # GGC HACK
     for l in robot.links:
