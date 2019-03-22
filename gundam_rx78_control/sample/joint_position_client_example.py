@@ -40,12 +40,12 @@ def main():
     rospy.init_node("joint_position_client_example")
     positions = {
         'head_neck_p': 0.2, 'head_neck_y': 0.3,
-        'larm_shoulder_p': 0.1, 'larm_shoulder_r':  0.3, 'larm_shoulder_y': -0.1, 'larm_elbow_p': -0.2, 'larm_wrist_r': 0, 'larm_wrist_y': 0, 'larm_gripper': -0.01,
-        'rarm_shoulder_p': 0.1, 'rarm_shoulder_r': -0.3, 'rarm_shoulder_y': 0.1, 'rarm_elbow_p': -0.2, 'rarm_wrist_r': 0, 'rarm_wrist_y': 0, 'rarm_gripper': 0.01,
+        'larm_shoulder_p': 0.1, 'larm_shoulder_r':  0.3, 'larm_shoulder_y': -0.1, 'larm_elbow_p': -0.2, 'larm_wrist_r': 0, 'larm_wrist_y': 0, 'larm_gripper': 1.1,
+        'rarm_shoulder_p': 0.1, 'rarm_shoulder_r': -0.3, 'rarm_shoulder_y': 0.1, 'rarm_elbow_p': -0.2, 'rarm_wrist_r': 0, 'rarm_wrist_y': 0, 'rarm_gripper': 1.1,
 
         'torso_waist_p': -0.05, 'torso_waist_y': 0.05,
 
-        'lleg_crotch_p': -0.30, 'lleg_crotch_r':  0.2, 'lleg_crotch_y':   0.35, 'lleg_knee_p':  0.20, 'lleg_ankle_p':  0.15, 'lleg_ankle_r': -0.1,
+        'lleg_crotch_p': -0.30, 'lleg_crotch_r':  0.2, 'lleg_crotch_y':   0.35, 'lleg_knee_p':  0.20, 'lleg_ankle_p':  0.10, 'lleg_ankle_r': -0.05,
         'rleg_crotch_p':  0.15, 'rleg_crotch_r': -0.1, 'rleg_crotch_y': -0.15, 'rleg_knee_p':  0.05, 'rleg_ankle_p': -0.2, 'rleg_ankle_r':  0.1,
     }
 
