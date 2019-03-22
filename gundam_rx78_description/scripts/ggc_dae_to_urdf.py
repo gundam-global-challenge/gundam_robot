@@ -194,8 +194,8 @@ def calc_inertia(collision, density=100.0):
     bbox_z = collision.geometry.size[2]
     mass = density * bbox_x * bbox_y * bbox_z
     ## GGC hack, small mass reduce stability of simulation
-    if 1 < mass and mass < 10:
-        mass = 10
+    if 1 < mass and mass < 50:
+        mass = 50
     all_weight_ += mass
     return Inertial(mass,
                     inertia=Inertia(
