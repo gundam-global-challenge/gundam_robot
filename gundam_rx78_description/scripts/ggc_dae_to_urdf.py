@@ -197,7 +197,8 @@ def calc_inertia(collision, density=100.0):
     if 1 < mass and mass < 50:
         mass = 50
     all_weight_ += mass
-    return Inertial(mass,
+    return Inertial(mass=mass,
+                    origin=copy.deepcopy(collision.origin),
                     inertia=Inertia(
                         ixx=mass * (bbox_y * bbox_y + bbox_z * bbox_z) / 12.0,
                                     iyy=mass *
