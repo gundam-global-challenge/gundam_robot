@@ -25,7 +25,7 @@ If the gazebo simulation GUI is launched, You must start `start` button on the b
 To control joint angles, try a sample script.
 
 ```
-$ rosrun gundam_rx78_control joint_position_client_example.py
+$ rosrun gundam_rx78_control joint_trajectory_client_example.py
 ```
 
 Note that currently, we have several limitation on this simulation, the robot is pinned to the world, we only have position controller etc.
