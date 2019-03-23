@@ -142,7 +142,7 @@ joints_ = {
     'rx78_Null_039': {'name': 'lleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': ankle_pid},
     'rx78_Null_041': {'name': 'lleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
-    'rx78_Null_040': {'mimic': 'rx78_Null_041',  'axis': [-1, 0, 0]},  # ankle back
+    'rx78_Null_040': {'joint_type': 'fixed', 'parent': 'rx78_Null_041', 'origin_xyz': [1.44559, 0, 0], 'origin_rpy': [0, 0, 0]},  # {'mimic': 'rx78_Null_041',  'axis': [-1, 0, 0]},  # ankle back
     'rx78_Null_042': {'joint_type': 'fixed'},  # sole
     'rx78_Null_043': {'joint_type': 'fixed'},  # sole
     'rx78_Null_044': {'joint_type': 'fixed'},  # sole
@@ -161,7 +161,7 @@ joints_ = {
     'rx78_Null_089': {'name': 'rleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4,'pid': ankle_pid},
     'rx78_Null_091': {'name': 'rleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
-    'rx78_Null_090': {'mimic': 'rx78_Null_091',  'axis': [-1, 0, 0]},  # ankle back
+    'rx78_Null_090': {'joint_type': 'fixed', 'parent': 'rx78_Null_091', 'origin_xyz': [1.44559, 0, 0], 'origin_rpy': [0, 0, 0]},  # {'mimic': 'rx78_Null_091',  'axis': [-1, 0, 0]},  # ankle back
     'rx78_Null_092': {'joint_type': 'fixed'},  # sole
     'rx78_Null_093': {'joint_type': 'fixed'},  # sole
     'rx78_Null_094': {'joint_type': 'fixed'},  # sole
@@ -433,13 +433,13 @@ def add_gazebo_nodes(robot):
             l.inertial.origin.xyz[2] += -1.25
             l.inertial.mass = l.inertial.mass*1.5
         # ankle_r
-        if l.name in ['rx78_object_089_link', 'rx78_object_032_link']: # back sole
-            l.inertial.origin.xyz[0] +=  0.55
-            l.inertial.origin.xyz[2] += -0.35
-            l.inertial.mass = l.inertial.mass*5
-        if l.name in ['rx78_object_034_link', 'rx78_object_091_link']: # front sole
-            l.inertial.origin.xyz[0] -=  0.4
-            l.inertial.origin.xyz[2] += -0.6
+        # if l.name in ['rx78_object_089_link', 'rx78_object_032_link']: # back sole
+        #     l.inertial.origin.xyz[0] +=  0.55
+        #     l.inertial.origin.xyz[2] += -0.35
+        #     l.inertial.mass = l.inertial.mass*5
+        # if l.name in ['rx78_object_034_link', 'rx78_object_091_link']: # front sole
+        #     l.inertial.origin.xyz[0] -=  0.4
+        #     l.inertial.origin.xyz[2] += -0.6
         # ankle cover
         if l.name in ['rx78_object_021_link', 'rx78_object_039_link']: # ankle cover
             l.inertial.origin.xyz[1] -=  0.8
