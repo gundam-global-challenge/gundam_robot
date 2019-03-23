@@ -36,23 +36,22 @@ import sys
 import math
 import numpy
 import argparse
-
 # xmlutil.COLLADA_NS = 'http://www.collada.org/2008/03/COLLADASchema'
 
 depth_ = 0
 scale_ = 0.1  # original file uses cm unit
 all_weight_ = 0.0
-zero_pid     = {'p':          0.0, 'i':          0.0, 'd':          0.0}
-default_pid  = {'p':    1000000.0, 'i':        500.0, 'd':     200000.0}
-torso_pid    = {'p':   20000000.0, 'i':      10000.0, 'd':    2000000.0}
-wrist_pid    = {'p':     100000.0, 'i':         50.0, 'd':      20000.0}
-gripper_pid  = {'p':       5000.0, 'i':        100.0, 'd':       1000.0}
-crotch_p_pid = {'p':   40000000.0, 'i':    4000000.0, 'd':    2000000.0}
-crotch_r_pid = {'p':   20000000.0, 'i':    1000000.0, 'd':    1000000.0}
-crotch_y_pid = {'p':   20000000.0, 'i':    1000000.0, 'd':    1000000.0}
-knee_p_pid   = {'p':   10000000.0, 'i':     100000.0, 'd':    1000000.0}
-ankle_pid    = {'p':   10000000.0, 'i':       5000.0, 'd':    1000000.0}
-cover_pid    = {'p':      50000.0, 'i':        500.0, 'd':       5000.0}
+zero_pid = {'p': 0.0, 'i': 0.0, 'd': 0.0}
+default_pid = {'p': 1000000.0, 'i': 500.0, 'd': 200000.0}
+torso_pid = {'p': 20000000.0, 'i': 10000.0, 'd': 2000000.0}
+wrist_pid = {'p': 100000.0, 'i': 50.0, 'd': 20000.0}
+gripper_pid = {'p': 5000.0, 'i': 100.0, 'd': 1000.0}
+crotch_p_pid = {'p': 40000000.0, 'i': 4000000.0, 'd': 2000000.0}
+crotch_r_pid = {'p': 20000000.0, 'i': 1000000.0, 'd': 1000000.0}
+crotch_y_pid = {'p': 20000000.0, 'i': 1000000.0, 'd': 1000000.0}
+knee_p_pid = {'p': 10000000.0, 'i': 100000.0, 'd': 1000000.0}
+ankle_pid = {'p': 10000000.0, 'i': 5000.0, 'd': 1000000.0}
+cover_pid = {'p': 50000.0, 'i': 500.0, 'd': 5000.0}
 joints_ = {
     # axis [pitch, roll, yaw]
     # backpack
@@ -138,7 +137,7 @@ joints_ = {
     'rx78_object_029': {'name': 'lleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 4, 'pid': crotch_r_pid},  # hack for crotch-r _035->_029->_036
     'rx78_Null_036': {'name': 'lleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_029', 'pid': crotch_y_pid},
     'rx78_Null_037': {'name': 'lleg_knee_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 24, 'limit_upper': math.pi / 3, 'pid': knee_p_pid},
-    'rx78_Null_038': {'mimic': 'rx78_Null_037',  'axis': [1, 0, 0]},
+    'rx78_Null_038': {'mimic': 'rx78_Null_037', 'axis': [1, 0, 0]},
     'rx78_Null_039': {'name': 'lleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': ankle_pid},
     'rx78_Null_041': {'name': 'lleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
@@ -157,8 +156,8 @@ joints_ = {
     'rx78_object_086': {'name': 'rleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 12, 'pid': crotch_r_pid},  # hack for crotch-r _085->_086->_086
     'rx78_Null_086': {'name': 'rleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_086', 'pid': crotch_y_pid},
     'rx78_Null_087': {'name': 'rleg_knee_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 24, 'limit_upper': math.pi / 3, 'pid': knee_p_pid},
-    'rx78_Null_088': {'mimic': 'rx78_Null_087',  'axis': [1, 0, 0]},
-    'rx78_Null_089': {'name': 'rleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4,'pid': ankle_pid},
+    'rx78_Null_088': {'mimic': 'rx78_Null_087', 'axis': [1, 0, 0]},
+    'rx78_Null_089': {'name': 'rleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': ankle_pid},
     'rx78_Null_091': {'name': 'rleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
     'rx78_Null_090': {'joint_type': 'fixed', 'parent': 'rx78_Null_091', 'origin_xyz': [1.44559, 0, 0], 'origin_rpy': [0, 0, 0]},  # {'mimic': 'rx78_Null_091',  'axis': [-1, 0, 0]},  # ankle back
@@ -176,15 +175,15 @@ def get_bouding_box(geometries):
     bbox_max = []
     for g in geometries:
         for p in g.primitives:
-            if not p.vertex is None:
+            if p.vertex is not None:
                 for i in p.vertex_index:
                     bbox_min.append(scale_ * numpy.amin(p.vertex[i], axis=0))
                     bbox_max.append(scale_ * numpy.amax(p.vertex[i], axis=0))
 
-    xyz = list((numpy.amax(numpy.array(bbox_max), axis=0)
-               + numpy.amin(numpy.array(bbox_min), axis=0)) / 2)
-    size = list(numpy.amax(numpy.array(bbox_max), axis=0)
-                - numpy.amin(numpy.array(bbox_min), axis=0))
+    xyz = list((numpy.amax(numpy.array(bbox_max), axis=0) +
+                numpy.amin(numpy.array(bbox_min), axis=0)) / 2)
+    size = list(numpy.amax(numpy.array(bbox_max), axis=0) -
+                numpy.amin(numpy.array(bbox_min), axis=0))
     return Collision(
         origin=Pose(xyz=xyz),
         geometry=Box(size=size))
@@ -196,7 +195,7 @@ def calc_inertia(collision, density=100.0):
     bbox_y = collision.geometry.size[1]
     bbox_z = collision.geometry.size[2]
     mass = density * bbox_x * bbox_y * bbox_z
-    ## GGC hack, small mass reduce stability of simulation
+    # GGC hack, small mass reduce stability of simulation
     if 1 < mass and mass < 50:
         mass = 50
     all_weight_ += mass
@@ -204,10 +203,8 @@ def calc_inertia(collision, density=100.0):
                     origin=copy.deepcopy(collision.origin),
                     inertia=Inertia(
                         ixx=mass * (bbox_y * bbox_y + bbox_z * bbox_z) / 12.0,
-                                    iyy=mass *
-                                        (bbox_z * bbox_z + bbox_x * bbox_x) /
-                                         12.0,
-                                    izz=mass * (bbox_x * bbox_x + bbox_y * bbox_y) / 12.0))
+                        iyy=mass * (bbox_z * bbox_z + bbox_x * bbox_x) / 12.0,
+                        izz=mass * (bbox_x * bbox_x + bbox_y * bbox_y) / 12.0))
 
 
 def retrive_node(nodes, parent=None):
@@ -221,7 +218,7 @@ def retrive_node(nodes, parent=None):
             print('id .. {} {}'.format(node.id, type(node)))
         except:
             print('node .. {}'.format(node))
-        if type(node) == scene.Node:
+        if isinstance(node, scene.Node):
             if node.id:
                 l = Link(name=node.id + '_link',
                          visual=None,
@@ -240,26 +237,25 @@ def retrive_node(nodes, parent=None):
                               child=l.name,
                               joint_type='fixed',
                               origin=Pose(
-                                  xyz=scale_ *
-                                      translation_from_matrix(node.matrix),
-                                          rpy=euler_from_matrix(node.matrix))
+                                  xyz=scale_ * translation_from_matrix(node.matrix),
+                                  rpy=euler_from_matrix(node.matrix))
                               )
                     print(
                         '{}  - {}'.format(' ' * depth_, [type(n) for n in node.children]))
-                    if not any(type(n) == scene.GeometryNode for n in node.children):
+                    if not any(isinstance(n, scene.GeometryNode) for n in node.children):
                         j.joint_type = 'revolute'
                         # j.axis = numpy.array(parent.matrix)[:3, :3].dot([0,
                         # 0, 1])
                         j.axis = [0, 0, 1]
                         if len(node.transforms) > 1:
                             print(node.transforms[1:])
-                        if any(type(n) == scene.RotateTransform for n in node.transforms):
+                        if any(isinstance(n, scene.RotateTransform) for n in node.transforms):
                             j.axis = [1, 0, 0]
                         j.limit = JointLimit(
                             lower=-math.pi / 2, upper=math.pi / 2, effort=1000000000, velocity=1000000)
                     #
-                    if joints_.has_key(node.id):
-                        if joints_[node.id].has_key('joint_type'):
+                    if node.id in joints_:
+                        if 'joint_type' in joints_[node.id]:
                             j.joint_type = joints_[node.id]['joint_type']
                             if j.joint_type == 'fixed':
                                 j.limit = None
@@ -269,33 +265,33 @@ def retrive_node(nodes, parent=None):
                                     lower=-math.pi / 2, upper=math.pi / 2, effort=1000000000, velocity=1000000)
                                 j.dynamics = JointDynamics(
                                     damping='0.1', friction='0.0')
-                        if joints_[node.id].has_key('axis'):
+                        if 'axis' in joints_[node.id]:
                             j.axis = joints_[node.id]['axis']
-                        if joints_[node.id].has_key('limit_lower'):
+                        if 'limit_lower' in joints_[node.id]:
                             j.limit.lower = joints_[node.id]['limit_lower']
-                        if joints_[node.id].has_key('limit_upper'):
+                        if 'limit_upper' in joints_[node.id]:
                             j.limit.upper = joints_[node.id]['limit_upper']
-                        if joints_[node.id].has_key('parent'):
+                        if 'parent' in joints_[node.id]:
                             j.parent = joints_[node.id]['parent'] + '_link'
-                        if joints_[node.id].has_key('child'):
+                        if 'child' in joints_[node.id]:
                             j.child = joints_[node.id]['child'] + '_link'
-                        if joints_[node.id].has_key('origin_xyz'):
+                        if 'origin_xyz' in joints_[node.id]:
                             j.origin.xyz = joints_[node.id]['origin_xyz']
-                        if joints_[node.id].has_key('origin_rpy'):
+                        if 'origin_rpy' in joints_[node.id]:
                             j.origin.rpy = joints_[node.id]['origin_rpy']
-                        if args.no_mimic and joints_[node.id].has_key('mimic'):
+                        if args.no_mimic and 'mimic' in joints_[node.id]:
                             # disable mimic
                             j.joint_type = 'fixed'
                             j.limit = None
                             j.axis = None
                         else:
-                            if joints_[node.id].has_key('mimic'):
+                            if 'mimic' in joints_[node.id]:
                                 j.mimic = JointMimic(
                                     joint_name=joints_[node.id]['mimic'])
-                            if joints_[node.id].has_key('mimic_multiplier'):
+                            if 'mimic_multiplier' in joints_[node.id]:
                                 j.mimic.multiplier = joints_[
                                     node.id]['mimic_multiplier']
-                            if joints_[node.id].has_key('mimic_offset'):
+                            if 'mimic_offset' in joints_[node.id]:
                                 j.mimic.offset = joints_[
                                     node.id]['mimic_offset']
                 #
@@ -305,7 +301,7 @@ def retrive_node(nodes, parent=None):
 
             retrive_node(node.children, node)
             depth_ -= 1
-        elif type(node) == scene.GeometryNode:
+        elif isinstance(node, scene.GeometryNode):
             # print('writing mesh file to meshes/{}.dae'.format(node.geometry.id))
             # write mesh
             c = Collada()
@@ -317,8 +313,8 @@ def retrive_node(nodes, parent=None):
             cont = asset.Contributor(
                 author="Association GUNDAM GLOBAL CHALLENGE",
                 comments="This file is automatically generated by " +
-                    (' '.join(sys.argv)).replace('--', '\-\-') + ' '
-                           "and distributed under the TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike",
+                (' '.join(sys.argv)).replace('--', '\-\-') + ' '
+                "and distributed under the TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike",
                 copyright="SOTSU, SUNRISE / GUNDAM GLOBAL CHALLENGE",
             )
             c.assetInfo.contributors.append(cont)
@@ -342,32 +338,30 @@ def retrive_node(nodes, parent=None):
             l.collision = get_bouding_box(c.geometries)
             l.inertial = calc_inertia(l.collision)
 
-        elif type(node) == scene.ExtraNode:
+        elif isinstance(node, scene.ExtraNode):
             pass
         else:
             print('skipping {}'.format(node))
 
+
 # update to human readable joint name
-
-
 def update_joint_name(robot):
     for j in robot.joints:
         joint_name = j.name[:-len('_joint')]
-        if joints_.has_key(joint_name) and joints_[joint_name].has_key('name'):
+        if joint_name in joints_ and 'name' in joints_[joint_name]:
             j.name = joints_[joint_name]['name']
-        if j.mimic and j.mimic.joint and joints_.has_key(j.mimic.joint) and joints_[j.mimic.joint].has_key('name'):
+        if j.mimic and j.mimic.joint and j.mimic.joint in joints_ and 'name' in joints_[j.mimic.joint]:
             j.mimic.joint = joints_[j.mimic.joint]['name']
 
+
 #
-
-
 def add_gazebo_nodes(robot):
     for j in robot.joints:
         if j.joint_type != "revolute":
             continue
 
         # joint parent and children needs physical properties
-        for l in [ l for l in robot.links if l.name in [j.parent, j.child] ]:
+        for l in [l for l in robot.links if l.name in [j.parent, j.child]]:
             g = etree.Element('gazebo', reference=l.name)
             etree.SubElement(g, 'selfCollide').text = 'false'
             # etree.SubElement(g, 'mu1').text = '0.2'
@@ -385,19 +379,19 @@ def add_gazebo_nodes(robot):
 
             # avoid null link for crotch_p ** GGC HACK
             if l.name == 'rx78_Null_035_link':
-                l.collision = Collision(origin=Pose(xyz=[-0.5,0,0]), geometry=Box(size=[1.0, 0.8, 0.8]))
+                l.collision = Collision(origin=Pose(xyz=[-0.5, 0, 0]), geometry=Box(size=[1.0, 0.8, 0.8]))
                 l.inertial = calc_inertia(l.collision, 400)
             if l.name == 'rx78_Null_085_link':
-                l.collision = Collision(origin=Pose(xyz=[ 0.5,0,0]), geometry=Box(size=[1.0, 0.8, 0.8]))
+                l.collision = Collision(origin=Pose(xyz=[0.5, 0, 0]), geometry=Box(size=[1.0, 0.8, 0.8]))
                 l.inertial = calc_inertia(l.collision, 400)
 
-            if l.collision == None:
+            if l.collision is None:
                 l.collision = Collision(geometry=Box(size=[0.2, 0.2, 0.2]))
-            if l.inertial == None:
+            if l.inertial is None:
                 l.inertial = calc_inertia(l.collision)
 
         # actuated joint
-        if not args.no_mimic or j.mimic == None:
+        if not args.no_mimic or j.mimic is None:
             # add extra info for actuated joints
             g = etree.Element('gazebo', reference=j.name)
             etree.SubElement(g, 'provideFeedback').text = '1'
@@ -428,11 +422,11 @@ def add_gazebo_nodes(robot):
         # elbow_p center of mass and joint axis needs displacement
         if l.name in ['rx78_object_076_link', 'rx78_object_062_link']:
             l.inertial.origin.xyz[2] += -1.0
-            l.inertial.mass = l.inertial.mass*1.5
+            l.inertial.mass = l.inertial.mass * 1.5
         # knee_p
         if l.name in ['rx78_object_023_link', 'rx78_object_041_link']:
             l.inertial.origin.xyz[2] += -1.25
-            l.inertial.mass = l.inertial.mass*1.5
+            l.inertial.mass = l.inertial.mass * 1.5
         # ankle_r
         # if l.name in ['rx78_object_089_link', 'rx78_object_032_link']: # back sole
         #     l.inertial.origin.xyz[0] +=  0.55
@@ -442,9 +436,9 @@ def add_gazebo_nodes(robot):
         #     l.inertial.origin.xyz[0] -=  0.4
         #     l.inertial.origin.xyz[2] += -0.6
         # ankle cover
-        if l.name in ['rx78_object_021_link', 'rx78_object_039_link']: # ankle cover
-            l.inertial.origin.xyz[1] -=  0.8
-            l.inertial.origin.xyz[2] +=  0.5
+        if l.name in ['rx78_object_021_link', 'rx78_object_039_link']:  # ankle cover
+            l.inertial.origin.xyz[1] -= 0.8
+            l.inertial.origin.xyz[2] += 0.5
 
     robot.add_aggregate('gazebo', etree.fromstring('<gazebo>'
                                                    '<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">'
@@ -468,18 +462,15 @@ def write_urdf_file(name, robot):
     f.write(
         '<?xml version="1.0" ?>\n'
         '<!--\n'
-        '  This file is automatically generated by ' +
-            (' '.join(sys.argv)).replace('--', '\-\-') + '\n'
+        '  This file is automatically generated by ' + (' '.join(sys.argv)).replace('--', '\-\-') + '\n'
         '  and distributed under the TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike\n'
         '  Copyright: SOTSU, SUNRISE / GUNDAM GLOBAL CHALLENGE\n'
         '-->\n')
-    f.write(robot.to_xml_string().split("\n", 1)
-            [1])  # skip <?xml version="1.0" ?>
+    f.write(robot.to_xml_string().split("\n", 1)[1])  # skip <?xml version="1.0" ?>
     f.close()
 
+
 # write ros_control configuration file
-
-
 def write_control_file():
     # write control file
     f = open('../gundam_rx78_control/config/gundam_rx78_control.yaml', 'w')
@@ -491,12 +482,12 @@ def write_control_file():
             '\n')
     f.write('# Position Controllers ---------------------------------------\n')
     for i, j in joints_.items():
-        if j.has_key('name'):
+        if 'name' in j:
             f.write('%s_position:\n' % j['name'])
             f.write('  type: %s_controllers/JointPositionController\n' %
                     args.controller_type)
             f.write('  joint: %s\n' % j['name'])
-            if j.has_key('pid'):
+            if 'pid' in j:
                 f.write('  pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
             else:
                 f.write('  pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
@@ -504,16 +495,16 @@ def write_control_file():
             if not args.no_mimic:
                 has_mimic_joints = False
                 for ii, jj in joints_.items():
-                    if jj.has_key('mimic') and jj['mimic'] == i:
+                    if 'mimic' in jj and jj['mimic'] == i:
                         if not has_mimic_joints:
                             f.write('  mimic_joints:\n')
                             has_mimic_joints = True
                         f.write('    %s_joint_position:\n' % ii)
                         f.write('      type: %s_controllers/JointPositionController\n' % args.controller_type)
                         f.write('      joint: %s_joint\n' % ii)
-                        if jj.has_key('pid'):
+                        if 'pid' in jj:
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
-                        elif j.has_key('pid'):
+                        elif 'pid' in j:
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (j['pid']['p'], j['pid']['i'], j['pid']['d']))
                         else:
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
@@ -525,29 +516,29 @@ def write_control_file():
     f.write('  type: gundam_rx78_control/JointTrajectoryController\n')
     f.write('  joints:\n')
     for i, j in joints_.items():
-        if j.has_key('name'):
+        if 'name' in j:
             f.write('    - %s\n' % j['name'])
     # for mimic joints
     if not args.no_mimic:
         f.write('  mimic_joints:\n')
         for i, j in joints_.items():
-            if j.has_key('mimic'):
+            if 'mimic' in j:
                 f.write('    - %s_joint # %s\n' % (i, joints_[j['mimic']]['name']))
     # gains
     f.write('  gains:\n')
     for i, j in joints_.items():
-        if j.has_key('name'):
-            if j.has_key('pid'):
+        if 'name' in j:
+            if 'pid' in j:
                 f.write('    %s : {p: %f, i: %f, d: %f}\n' % (j['name'], j['pid']['p'], j['pid']['i'], j['pid']['d']))
             else:
                 f.write('    %s : {p: %f, i: %f, d: %f}\n' % (j['name'], default_pid['p'], default_pid['i'], default_pid['d']))
     # for mimic joints
     if not args.no_mimic:
         for i, j in joints_.items():
-            if j.has_key('mimic'):
-                if j.has_key('pid'):
+            if 'mimic' in j:
+                if 'pid' in j:
                     f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, j['pid']['p'], j['pid']['i'], j['pid']['d']))
-                elif joints_[j['mimic']].has_key('pid'):
+                elif 'pid' in joints_[j['mimic']]:
                     jj = joints_[j['mimic']]
                     f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
                 else:
@@ -559,7 +550,6 @@ def write_control_file():
     f.write('  stop_trajectory_duration: 0.5\n')
     f.write('  state_publish_rate:  125\n')
     f.write('  action_monitor_rate: 10\n')
-
 
 global robot, args
 if __name__ == '__main__':

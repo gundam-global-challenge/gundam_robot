@@ -35,7 +35,8 @@ import rospy
 
 import actionlib
 
-import sys, time
+import sys
+import time
 
 from control_msgs.msg import (
     FollowJointTrajectoryAction,
@@ -44,6 +45,7 @@ from control_msgs.msg import (
 from trajectory_msgs.msg import (
     JointTrajectoryPoint,
 )
+
 
 def main():
     print("Initializing node... ")
@@ -60,10 +62,10 @@ def main():
         'lleg_crotch_p': -0.35, 'lleg_crotch_r':  0.2, 'lleg_crotch_y':   0.35, 'lleg_knee_p':  0.20, 'lleg_ankle_p':  0.05, 'lleg_ankle_r': -0.05,
         'rleg_crotch_p':  0.20, 'rleg_crotch_r': -0.1, 'rleg_crotch_y': -0.15, 'rleg_knee_p':  0.05, 'rleg_ankle_p': -0.2, 'rleg_ankle_r':  0.1,
     }
-    client =  actionlib.SimpleActionClient(
+    client = actionlib.SimpleActionClient(
         '/fullbody_controller/follow_joint_trajectory',
         FollowJointTrajectoryAction,
-        )
+    )
 
     if not client.wait_for_server(timeout=rospy.Duration(10)):
         rospy.logerr("Timed out waiting for Action Server")
@@ -78,13 +80,13 @@ def main():
     # points
     point = JointTrajectoryPoint()
     goal.trajectory.joint_names = positions.keys()
-    point.positions  = positions.values()
+    point.positions = positions.values()
     point.time_from_start = rospy.Duration(10)
     goal.trajectory.points.append(point)
 
     point = JointTrajectoryPoint()
     positions['torso_waist_p']   +=  0.2
-    positions['torso_waist_y']   +=  0.2    
+    positions['torso_waist_y']   +=  0.2
     positions['head_neck_p']      =  0.05
     positions['head_neck_y']      =  0.15
     positions['lleg_crotch_p']   += -0.1
