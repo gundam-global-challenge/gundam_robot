@@ -18,6 +18,7 @@
   <exec_depend>gazebo_plugins</exec_depend>
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>gazebo_ros_control</exec_depend>
+  <exec_depend>gundam_rx78_control</exec_depend>
   <exec_depend>gundam_rx78_description</exec_depend>
 
   <test_depend>roslaunch</test_depend>
