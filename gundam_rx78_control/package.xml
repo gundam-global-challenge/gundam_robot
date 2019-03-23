@@ -19,8 +19,14 @@
   <exec_depend>ros_control</exec_depend>
   <exec_depend>ros_controllers</exec_depend>
 
+  <!-- for joint_trajectory_controller -->
+  <depend>controller_interface</depend>
+  <depend>pluginlib</depend>
+
   <test_depend>roslaunch</test_depend>
 
-  <export/>
+  <export>
+    <controller_interface plugin="${prefix}/joint_trajectory_controller.xml"/>
+  </export>
 
 </package>
