@@ -327,7 +327,8 @@ def retrive_node(nodes, parent=None):
             c.effects = [m.target.effect for m in node.materials]
             c.scenes.append(s)
             c.scene = s
-            c.write('meshes/{}.dae'.format(g.id))
+            if args.write_mesh:
+                c.write('meshes/{}.dae'.format(g.id))
             #
             # update urdf
             l = [l for l in robot_.links if l.name == parent.id + '_link'][0]
@@ -570,6 +571,8 @@ if __name__ == '__main__':
         '--no_mimic', action='store_true', help='disable mimic joint')
     parser.add_argument(
         '--pin', action='store_true', help='pin the robot to the world')
+    parser.add_argument(
+        '--write_mesh', action='store_true', help='write mech files')
     args = parser.parse_args()
 
     # load collada file
