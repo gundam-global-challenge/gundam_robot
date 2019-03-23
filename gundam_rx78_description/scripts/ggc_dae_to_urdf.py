@@ -515,6 +515,48 @@ def write_control_file():
                         else:
                             f.write('      pid: {p: %f, i: %f, d: %f}\n' % (default_pid['p'], default_pid['i'], default_pid['d']))
 
+    f.write('\n')
+    f.write('# Joint Trajectory Controllers ---------------------------------------\n')
+    f.write('fullbody_controller:\n')
+    f.write('  type: %s_controllers/JointTrajectoryController\n' % args.controller_type)
+    f.write('  joints:\n')
+    for i, j in joints_.items():
+        if j.has_key('name'):
+            f.write('    - %s\n' % j['name'])
+    # for mimic joints
+    if not args.no_mimic:
+        f.write('  mimic_joints:\n')
+        for i, j in joints_.items():
+            if j.has_key('mimic'):
+                f.write('    - %s_joint # %s\n' % (i, joints_[j['mimic']]['name']))
+    # gains
+    f.write('  gains:\n')
+    for i, j in joints_.items():
+        if j.has_key('name'):
+            if j.has_key('pid'):
+                f.write('    %s : {p: %f, i: %f, d: %f}\n' % (j['name'], j['pid']['p'], j['pid']['i'], j['pid']['d']))
+            else:
+                f.write('    %s : {p: %f, i: %f, d: %f}\n' % (j['name'], default_pid['p'], default_pid['i'], default_pid['d']))
+    # for mimic joints
+    if not args.no_mimic:
+        for i, j in joints_.items():
+            if j.has_key('mimic'):
+                if j.has_key('pid'):
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, j['pid']['p'], j['pid']['i'], j['pid']['d']))
+                elif joints_[j['mimic']].has_key('pid'):
+                    jj = joints_[j['mimic']]
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
+                else:
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, default_pid['p'], default_pid['i'], default_pid['d']))
+    f.write('  constraints:\n')
+    f.write('    goal_time: 0.6\n')
+    f.write('    stopped_velocity_tolerance: 0.05\n')
+    f.write('    # joint: {trajectory: 0.2, goal: 0.2}\n')
+    f.write('  stop_trajectory_duration: 0.5\n')
+    f.write('  state_publish_rate:  125\n')
+    f.write('  action_monitor_rate: 10\n')
+
+
 global robot, args
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
