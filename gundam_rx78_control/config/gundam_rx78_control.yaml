@@ -304,7 +304,8 @@ rleg_crotch_r_position:
 
 # Joint Trajectory Controllers ---------------------------------------
 fullbody_controller:
-  type: effort_controllers/JointTrajectoryController
+#  type: effort_controllers/JointTrajectoryController
+  type: gundam_rx78_control/JointTrajectoryController
   joints:
     - lleg_ankle_p
     - lleg_crotch_p

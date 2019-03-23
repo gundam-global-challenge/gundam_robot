@@ -5082,7 +5082,9 @@
   </transmission>
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
     </plugin>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">
       <frameName>world</frameName>
