@@ -5,7 +5,8 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" args="joint_state_controller
+        output="screen" args="joint_state_controller fullbody_controller" />
+                              <!--
                               head_neck_p_position
                               head_neck_y_position
                               larm_elbow_p_position
@@ -36,8 +37,7 @@
                               rleg_knee_p_position
                               torso_waist_p_position
                               torso_waist_y_position
-                              " />
-
+                              -->
   <!-- convert joint states to TF transforms for rviz, etc -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
         respawn="false" output="screen">
