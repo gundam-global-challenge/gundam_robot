@@ -2570,29 +2570,16 @@
     <child link="rx78_Null_089_link"/>
     <limit effort="1000000000" lower="-0.785398163397" upper="0.785398163397" velocity="1000000"/>
   </joint>
-  <link name="rx78_Null_090_link">
-    <inertial>
-      <mass value="0.8"/>
-      <inertia ixx="0.00533333333333" ixy="0.0" ixz="0.0" iyy="0.00533333333333" iyz="0.0" izz="0.00533333333333"/>
-    </inertial>
-    <collision>
-      <geometry>
-        <box size="0.2 0.2 0.2"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="rx78_Null_090_joint" type="revolute">
-    <origin xyz="2.99e-05 -5e-07 -0.716289" rpy="3.0000001061e-06 -0.0 1.5707763268"/>
-    <axis xyz="-1 0 0"/>
-    <parent link="rx78_Null_089_link"/>
+  <link name="rx78_Null_090_link"/>
+  <joint name="rx78_Null_090_joint" type="fixed">
+    <origin xyz="1.44559 0 0" rpy="0 0 0"/>
+    <parent link="rx78_Null_091_link"/>
     <child link="rx78_Null_090_link"/>
-    <limit effort="1000000000" lower="-1.57079632679" upper="1.57079632679" velocity="1000000"/>
-    <mimic joint="rleg_ankle_r"/>
   </joint>
   <link name="rx78_object_089_link">
     <inertial>
-      <origin xyz="0.854892450571 -4.76241e-05 -0.642670845985"/>
-      <mass value="1650.26392015"/>
+      <origin xyz="0.304892 -4.76241e-05 -0.292671"/>
+      <mass value="330.052784029"/>
       <inertia ixx="179.173487591" ixy="0.0" ixz="0.0" iyy="96.5170220208" iyz="0.0" izz="239.960124507"/>
     </inertial>
     <visual>
@@ -2655,7 +2642,7 @@
   </joint>
   <link name="rx78_object_091_link">
     <inertial>
-      <origin xyz="-0.916370356083 -1.97291e-05 -0.457724845409"/>
+      <origin xyz="-0.51637 -1.97291e-05 0.142275"/>
       <mass value="1382.91066929"/>
       <inertia ixx="998.128333614" ixy="0.0" ixz="0.0" iyy="1664.97828092" iyz="0.0" izz="2016.61569891"/>
     </inertial>
@@ -3167,29 +3154,16 @@
     <child link="rx78_Null_039_link"/>
     <limit effort="1000000000" lower="-0.785398163397" upper="0.785398163397" velocity="1000000"/>
   </joint>
-  <link name="rx78_Null_040_link">
-    <inertial>
-      <mass value="0.8"/>
-      <inertia ixx="0.00533333333333" ixy="0.0" ixz="0.0" iyy="0.00533333333333" iyz="0.0" izz="0.00533333333333"/>
-    </inertial>
-    <collision>
-      <geometry>
-        <box size="0.2 0.2 0.2"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="rx78_Null_040_joint" type="revolute">
-    <origin xyz="1.9e-06 -6e-07 -0.716289" rpy="0.0 -0.0 1.57079632679"/>
-    <axis xyz="-1 0 0"/>
-    <parent link="rx78_Null_039_link"/>
+  <link name="rx78_Null_040_link"/>
+  <joint name="rx78_Null_040_joint" type="fixed">
+    <origin xyz="1.44559 0 0" rpy="0 0 0"/>
+    <parent link="rx78_Null_041_link"/>
     <child link="rx78_Null_040_link"/>
-    <limit effort="1000000000" lower="-1.57079632679" upper="1.57079632679" velocity="1000000"/>
-    <mimic joint="lleg_ankle_r"/>
   </joint>
   <link name="rx78_object_032_link">
     <inertial>
-      <origin xyz="0.854906725883 7.15256e-07 -0.642668104172"/>
-      <mass value="1650.24956648"/>
+      <origin xyz="0.304907 7.15256e-07 -0.292668"/>
+      <mass value="330.049913295"/>
       <inertia ixx="179.171837371" ixy="0.0" ixz="0.0" iyy="96.5149497242" iyz="0.0" izz="239.95677834"/>
     </inertial>
     <visual>
@@ -3252,7 +3226,7 @@
   </joint>
   <link name="rx78_object_034_link">
     <inertial>
-      <origin xyz="-0.916372740269 0.0 -0.457724368572"/>
+      <origin xyz="-0.516373 0.0 0.142276"/>
       <mass value="1382.89789608"/>
       <inertia ixx="998.116476765" ixy="0.0" ixz="0.0" iyy="1664.94531795" iyz="0.0" izz="2016.58058707"/>
     </inertial>
@@ -4766,29 +4740,6 @@
     <mu1>9000</mu1>
     <mu2>1.5</mu2>
   </gazebo>
-  <gazebo reference="rx78_Null_090_link">
-    <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
-    <mu2>1.5</mu2>
-  </gazebo>
-  <gazebo reference="rx78_Null_090_joint">
-    <provideFeedback>1</provideFeedback>
-    <implicitSpringDamper>1</implicitSpringDamper>
-  </gazebo>
-  <transmission name="rx78_Null_090_joint_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rx78_Null_090_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rx78_Null_090_joint_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <gazebo reference="rx78_Null_089_link">
-    <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
-    <mu2>1.5</mu2>
-  </gazebo>
   <gazebo reference="rx78_Null_091_link">
     <selfCollide>false</selfCollide>
     <mu1>9000</mu1>
@@ -5057,29 +5008,6 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="lleg_ankle_p_motor">
-      <mechanicalReduction>1.0</mechanicalReduction>
-    </actuator>
-  </transmission>
-  <gazebo reference="rx78_Null_039_link">
-    <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
-    <mu2>1.5</mu2>
-  </gazebo>
-  <gazebo reference="rx78_Null_040_link">
-    <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
-    <mu2>1.5</mu2>
-  </gazebo>
-  <gazebo reference="rx78_Null_040_joint">
-    <provideFeedback>1</provideFeedback>
-    <implicitSpringDamper>1</implicitSpringDamper>
-  </gazebo>
-  <transmission name="rx78_Null_040_joint_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <joint name="rx78_Null_040_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-    <actuator name="rx78_Null_040_joint_motor">
       <mechanicalReduction>1.0</mechanicalReduction>
     </actuator>
   </transmission>
