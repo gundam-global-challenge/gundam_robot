@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gundam_rx78_control)
 
-find_package(catkin REQUIRED COMPONENTS pluginlib)
+find_package(catkin REQUIRED COMPONENTS pluginlib roslint)
 
 ###################################
 ## catkin specific configuration ##
@@ -50,4 +50,8 @@ if(CATKIN_ENABLE_TESTING)
   foreach(LAUNCH_FILE ${LAUNCH_FILES})
     roslaunch_add_file_check(${LAUNCH_FILE})
   endforeach()
+
+  set(ROSLINT_PYTHON_OPTS --max-line-length=180 --ignore=E221,E222,E241) # skip multiple spaces before/after operator
+  roslint_python()
+  roslint_add_test()
 endif()

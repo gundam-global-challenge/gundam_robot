@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gundam_rx78_description)
 
-find_package(catkin REQUIRED COMPONENTS)
+find_package(catkin REQUIRED COMPONENTS roslint)
 
 ###################################
 ## catkin specific configuration ##
@@ -25,5 +25,9 @@ if(CATKIN_ENABLE_TESTING)
   foreach(LAUNCH_FILE ${LAUNCH_FILES})
     roslaunch_add_file_check(${LAUNCH_FILE})
   endforeach()
+
+  set(ROSLINT_PYTHON_OPTS --max-line-length=220 --ignore=E131) # skip continuation line unaligned for hanging indent
+  roslint_python()
+  roslint_add_test()
 endif()
 
