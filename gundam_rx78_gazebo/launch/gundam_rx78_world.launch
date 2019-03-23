@@ -1,7 +1,7 @@
 <launch>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="paused" default="false"/>
+  <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
@@ -23,40 +23,34 @@
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
         args="-urdf -model GGC_TestModel_rx78_20170112 -param robot_description
-              -z 11.5
-              -J head_neck_p_position -0.5
-              -J head_neck_y_position  0.5
+              -z 12
 
-              -J torso_waist_p_position  0.1
-              -J torso_waist_y_position  0.1
+              -J larm_shoulder_p  0.1
+              -J larm_shoulder_r  0.3
+              -J larm_shoulder_y -0.1
+              -J larm_elbow_p    -0.1
 
-              -J larm_shoulder_r_position  0.2
-              -J larm_shoulder_y_position  0.0
-              -J larm_shoulder_p_position  0.5
-              -J larm_elbow_p_position    -0.5
-              -J larm_wrist_r_position     0.0
-              -J larm_wrist_y_position     0.0
+              -J rarm_shoulder_p  0.1
+              -J rarm_shoulder_r -0.3
+              -J rarm_shoulder_y  0.1
+              -J rarm_elbow_p    -0.1
 
-              -J rarm_shoulder_r_position  0.2
-              -J rarm_shoulder_y_position  0.0
-              -J rarm_shoulder_p_position  0.5
-              -J rarm_elbow_p_position    -0.5
-              -J rarm_wrist_r_position     0.0
-              -J rarm_wrist_y_position     0.0
+              -J lleg_crotch_p   -0.35
+              -J lleg_crotch_r    0.2
+              -J lleg_crotch_y    0.35
+              -J lleg_knee_p      0.2
+              -J lleg_ankle_p     0.05
+              -J lleg_ankle_r    -0.05
 
-              -J lleg_crotch_p_position   -0.2
-              -J lleg_crotch_r_position   -0.1
-              -J lleg_crotch_y_position   -0.05
-              -J lleg_knee_p_position      0.4
-              -J lleg_ankle_p_position    -0.2
-              -J lleg_ankle_r_position     0.0
+              -J rleg_crotch_p    0.2
+              -J rleg_crotch_r   -0.1
+              -J rleg_crotch_y   -0.15
+              -J rleg_knee_p      0.05
+              -J rleg_ankle_p    -0.2
+              -J rleg_ankle_r     0.1
 
-              -J rleg_crotch_p_position   -0.2
-              -J rleg_crotch_r_position    0.1
-              -J rleg_crotch_y_position    0.05
-              -J rleg_knee_p_position      0.4
-              -J rleg_ankle_p_position    -0.2
-              -J rleg_ankle_r_position     0.0
+              -J larm_gripper     1.1
+              -J rarm_gripper     1.1
               " />
   <!-- ros_control gundam_rx78 launch file -->
   <include file="$(find gundam_rx78_control)/launch/gundam_rx78_control.launch" />
