@@ -447,7 +447,9 @@ def add_gazebo_nodes(robot):
 
     robot.add_aggregate('gazebo', etree.fromstring('<gazebo>'
                                                    '<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">'
+                                                   '<robotNamespace>/</robotNamespace>'
                                                    '<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>'
+                                                   '<legacyModeNS>true</legacyModeNS>'
                                                    '</plugin>'
                                                    '<plugin name="ground_truth" filename="libgazebo_ros_p3d.so">'
                                                    '<frameName>world</frameName>'
@@ -518,7 +520,8 @@ def write_control_file():
     f.write('\n')
     f.write('# Joint Trajectory Controllers ---------------------------------------\n')
     f.write('fullbody_controller:\n')
-    f.write('  type: %s_controllers/JointTrajectoryController\n' % args.controller_type)
+    f.write('#  type: %s_controllers/JointTrajectoryController\n' % args.controller_type)
+    f.write('  type: gundam_rx78_control/JointTrajectoryController\n')
     f.write('  joints:\n')
     for i, j in joints_.items():
         if j.has_key('name'):
