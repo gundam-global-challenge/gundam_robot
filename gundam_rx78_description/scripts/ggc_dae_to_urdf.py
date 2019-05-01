@@ -440,6 +440,16 @@ def add_gazebo_nodes(robot):
             l.inertial.origin.xyz[1] -= 0.8
             l.inertial.origin.xyz[2] += 0.5
 
+    # for urdfdom_py = 0.4.0
+    # Once https://github.com/ros/urdf_parser_py/pull/47 is merged, we can remove this block
+    from rospkg import RosPack
+    if RosPack().get_manifest('urdfdom_py').version == '0.4.0':
+        for l in robot.links:
+            if l.visual:
+                l.add_aggregate('visual', l.visual)
+            if l.collision:
+                l.add_aggregate('collision', l.collision)
+
     robot.add_aggregate('gazebo', etree.fromstring('<gazebo>'
                                                    '<plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">'
                                                    '<robotNamespace>/</robotNamespace>'
