@@ -1,0 +1,46 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find gundam_rx78_control)/config/gundam_rx78_control.yaml"  command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="--shutdown-timeout 0.1 joint_state_controller fullbody_controller" />
+                              <!--
+                              head_neck_p_position
+                              head_neck_y_position
+                              larm_elbow_p_position
+                              larm_gripper_position
+                              larm_shoulder_p_position
+                              larm_shoulder_r_position
+                              larm_shoulder_y_position
+                              larm_wrist_r_position
+                              larm_wrist_y_position
+                              lleg_ankle_p_position
+                              lleg_ankle_r_position
+                              lleg_crotch_p_position
+                              lleg_crotch_r_position
+                              lleg_crotch_y_position
+                              lleg_knee_p_position
+                              rarm_elbow_p_position
+                              rarm_gripper_position
+                              rarm_shoulder_p_position
+                              rarm_shoulder_r_position
+                              rarm_shoulder_y_position
+                              rarm_wrist_r_position
+                              rarm_wrist_y_position
+                              rleg_ankle_p_position
+                              rleg_ankle_r_position
+                              rleg_crotch_p_position
+                              rleg_crotch_r_position
+                              rleg_crotch_y_position
+                              rleg_knee_p_position
+                              torso_waist_p_position
+                              torso_waist_y_position
+                              -->
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+  </node>
+
+</launch>

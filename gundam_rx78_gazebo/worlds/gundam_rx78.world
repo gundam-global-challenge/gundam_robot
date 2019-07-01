@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <!-- We use a custom world for the rrbot so that the camera angle is launched correctly -->
+
+  <world name="default">
+
+    <!-- A global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+    <!-- A ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <!-- A fast food shop -->
+    <!-- <include> -->
+    <!--   <uri>model://fast_food</uri> -->
+    <!--   <pose>-5.0 -5.0 1.5 0 0 0</pose> -->
+    <!-- </include> -->
+
+    <!-- <physics type="ode"> -->
+    <!--   <gravity>0 0 -0.98</gravity> -->
+    <!-- </physics> -->
+
+
+    <!-- Lunar Tranquillitatis Pit -->
+<!--
+    <include>
+      <uri>model://lunar_tranquillitatis_pit</uri>
+    </include>
+
+    <scene>
+      <ambient>0.0 0.0 0.0 1.0</ambient>
+      <background>0.0 0.0 0.0 1</background>
+      <grid>false</grid>
+      <sky>
+        <time>13</time>
+        <sunrise>12</sunrise>
+        <sunset>12</sunset>
+        <clouds>
+          <humidity>0</humidity>
+          </clouds>
+          </sky>
+      <shadows>1</shadows>
+    </scene>
+    <light name='sun1' type="directional" >
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>1</constant>
+      </attenuation>
+      <direction>-1.0 1.0 -1.0</direction>
+    </light>
+    <light name='sun2' type="directional" >
+      <cast_shadows>1</cast_shadows>
+      <pose>1 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>1</constant>
+      </attenuation>
+      <direction>-1.0 1.0 -1.0</direction>
+    </light>
+    <light name='sun3' type="directional" >
+      <cast_shadows>1</cast_shadows>
+      <pose>0 1 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>1</constant>
+      </attenuation>
+      <direction>-1.0 1.0 -1.0</direction>
+    </light>
+    <light name='sun4' type="directional" >
+      <cast_shadows>1</cast_shadows>
+      <pose>1 1 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.9 1</diffuse>
+      <specular>0.0 0.0 0.0 1</specular>
+      <attenuation>
+        <range>100</range>
+        <constant>1</constant>
+      </attenuation>
+      <direction>-1.0 1.0 -1.0</direction>
+    </light>
+-->
+    <!-- <model name="box"> -->
+    <!--   <pose>5 0 10 0 0 0</pose> -->
+    <!--   <link name="link"> -->
+    <!--     <collision name="collision"> -->
+    <!--       <geometry> -->
+    <!--         <box> -->
+    <!--           <size>1 1 20</size> -->
+    <!--         </box> -->
+    <!--       </geometry> -->
+    <!--     </collision> -->
+    <!--     <visual name="visual"> -->
+    <!--       <geometry> -->
+    <!--         <box> -->
+    <!--           <size>1 1 20</size> -->
+    <!--         </box> -->
+    <!--       </geometry> -->
+    <!--       <material> -->
+    <!--         <script>Gazebo/WoodPallet</script> -->
+    <!--       </material> -->
+    <!--     </visual> -->
+    <!--   </link> -->
+    <!-- </model> -->
+    <!-- <model name='ground_plane'> -->
+    <!--   <static>1</static> -->
+    <!--   <link name='link'> -->
+    <!--     <collision name='collision'> -->
+    <!--       <geometry> -->
+    <!--         <plane> -->
+    <!--           <normal>0 0 1</normal> -->
+    <!--           <size>100 100</size> -->
+    <!--         </plane> -->
+    <!--       </geometry> -->
+    <!--       <surface> -->
+    <!--         <friction> -->
+    <!--           <ode> -->
+    <!--             <mu>100</mu> -->
+    <!--             <mu2>50</mu2> -->
+    <!--             <fdir1>1 0 0</fdir1> -->
+    <!--           </ode> -->
+    <!--         </friction> -->
+    <!--         <bounce/> -->
+    <!--         <contact> -->
+    <!--           <ode/> -->
+    <!--         </contact> -->
+    <!--       </surface> -->
+    <!--       <max_contacts>10</max_contacts> -->
+    <!--     </collision> -->
+    <!--     <visual name='visual'> -->
+    <!--       <cast_shadows>0</cast_shadows> -->
+    <!--       <geometry> -->
+    <!--         <plane> -->
+    <!--           <normal>0 0 1</normal> -->
+    <!--           <size>100 100</size> -->
+    <!--         </plane> -->
+    <!--       </geometry> -->
+    <!--       <material> -->
+    <!--         <script> -->
+    <!--           <uri>file://media/materials/scripts/gazebo.material</uri> -->
+    <!--           <name>Gazebo/Grey</name> -->
+    <!--         </script> -->
+    <!--       </material> -->
+    <!--     </visual> -->
+    <!--     <velocity_decay> -->
+    <!--       <linear>0</linear> -->
+    <!--       <angular>0</angular> -->
+    <!--     </velocity_decay> -->
+    <!--     <self_collide>0</self_collide> -->
+    <!--     <kinematic>0</kinematic> -->
+    <!--     <gravity>1</gravity> -->
+    <!--   </link> -->
+    <!-- </model> -->
+    
+    <!-- Focus camera  -->
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>37.5877 13.6808 1.7 0.000000 -0.261799 3.49066</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+  </world>
+</sdf>

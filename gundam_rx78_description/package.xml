@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gundam_rx78_description</name>
+  <version>0.0.0</version>
+  <description>gundam_rx78_description contains the ROS URDF file of the GUNDAM RX-78 robot</description>
+
+  <maintainer email="kei.okada@gmail.com">Kei Okada</maintainer>
+
+  <license>TERMS OF USE FOR GUNDAM RESEARCH OPEN SIMULATOR Attribution-NonCommercial-ShareAlike</license>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/gundam_rx78_description</url>
+
+  <author>Association GUNDAM GLOBAL CHALLENGE</author>
+  <author email="kei.okada@gmail.com">Kei Okada</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+
+  <build_depend>roslint</build_depend>
+
+  <test_depend>roslaunch</test_depend>
+
+  <export/>
+
+</package>
