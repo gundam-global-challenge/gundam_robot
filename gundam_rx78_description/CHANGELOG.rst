@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2019-07-01)
+------------------
 * Add gundam RX-79 Description (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)
 
   * respect @Naoki-Hiraoka 's dynamics parameters on urdf (mu2/kp/kd...) https://github.com/Naoki-Hiraoka/gundam_robot/tree/gundam-walk

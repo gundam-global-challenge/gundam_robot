@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2019-07-01)
+------------------
 * Add controllers for gundom robot (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)
 
   * call controller_manager/spawner with --shutdown-timeout 0.1, this is deprecated on melodic

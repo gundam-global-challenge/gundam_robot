@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.1 (2019-07-01)
+------------------
 * Add first gundam gazebon simulator (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)
 
   * comment out fast_foot because the origin of the house differs in kinetic and melodic
