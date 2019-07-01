@@ -280,7 +280,7 @@ bool JointTrajectoryController<SegmentImpl, HardwareInterface>::init(HardwareInt
     ROS_DEBUG_STREAM_NAMED(name_, "Found " << not_if << "continuous joint '" << joint_names_[i] << "' in '" <<
                                   this->getHardwareInterfaceType() << "'.");
 
-    ROS_INFO_STREAM("Loaidng joint " << joint_names_[i] << " (" << i << ")");
+    ROS_INFO_STREAM("Loading joint " << joint_names_[i] << " (" << i << ")");
   }
 
   assert(joints_.size() == angle_wraparound_.size());
@@ -381,7 +381,7 @@ bool JointTrajectoryController<SegmentImpl, HardwareInterface>::init(HardwareInt
       {
         ROS_ERROR_STREAM_NAMED(name_, "Could not find joint '" << mimic_urdf_joints_[i]->mimic->joint_name << "' in joint_names");
       }
-      ROS_INFO_STREAM("Loaidng mimic_joint " << mimic_joint_names_[i] << " = " << joint_names_[mimic_joint_ids_[i]] << " (" << mimic_joint_ids_[i] << ") * " << mimic_urdf_joints_[i]->mimic->multiplier << " + " << mimic_urdf_joints_[i]->mimic->offset);
+      ROS_INFO_STREAM("Loading mimic_joint " << mimic_joint_names_[i] << " = " << joint_names_[mimic_joint_ids_[i]] << " (" << mimic_joint_ids_[i] << ") * " << mimic_urdf_joints_[i]->mimic->multiplier << " + " << mimic_urdf_joints_[i]->mimic->offset);
     }
     // Hardware interface adapter
     mimic_hw_iface_adapter_.init(mimic_joints_, controller_nh_);
