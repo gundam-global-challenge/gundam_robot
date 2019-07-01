@@ -42,15 +42,20 @@ depth_ = 0
 scale_ = 0.1  # original file uses cm unit
 all_weight_ = 0.0
 zero_pid = {'p': 0.0, 'i': 0.0, 'd': 0.0}
-default_pid = {'p': 1000000.0, 'i': 500.0, 'd': 200000.0}
+default_pid = {'p': 10000000.0, 'i': 500.0, 'd': 200000.0}
+head_pid = {'p': 1000000.0, 'i': 500.0, 'd': 200000.0}
 torso_pid = {'p': 20000000.0, 'i': 10000.0, 'd': 2000000.0}
+elbow_p_mimic_pid = {'p': 1000000.0, 'i': 500.0, 'd': 200000.0}
 wrist_pid = {'p': 100000.0, 'i': 50.0, 'd': 20000.0}
-gripper_pid = {'p': 5000.0, 'i': 100.0, 'd': 1000.0}
-crotch_p_pid = {'p': 40000000.0, 'i': 4000000.0, 'd': 2000000.0}
-crotch_r_pid = {'p': 20000000.0, 'i': 1000000.0, 'd': 1000000.0}
-crotch_y_pid = {'p': 20000000.0, 'i': 1000000.0, 'd': 1000000.0}
-knee_p_pid = {'p': 10000000.0, 'i': 100000.0, 'd': 1000000.0}
-ankle_pid = {'p': 10000000.0, 'i': 5000.0, 'd': 1000000.0}
+gripper_pid = {'p': 100000.0, 'i': 100.0, 'd': 500.0}
+finger_pid = {'p': 100000.000000, 'i': 100.000000, 'd': 500.000000}
+crotch_p_pid = {'p': 400000000.0, 'i': 4000000.0, 'd': 2000000.0}
+crotch_r_pid = {'p': 200000000.0, 'i': 1000000.0, 'd': 1000000.0}
+crotch_y_pid = {'p': 200000000.0, 'i': 1000000.0, 'd': 1000000.0}
+knee_p_pid = {'p': 100000000.0, 'i': 100000.0, 'd': 1000000.0}
+knee_p_mimic_pid = {'p': 10000000.0, 'i': 100000.0, 'd': 1000000.0}
+ankle_pid = {'p': 100000000.0, 'i': 5000.0, 'd': 1000000.0}
+ankle_p_mimic_pid = {'p': 500000.0, 'i': 500.0, 'd': 50000.0}
 cover_pid = {'p': 50000.0, 'i': 500.0, 'd': 5000.0}
 joints_ = {
     # axis [pitch, roll, yaw]
@@ -73,61 +78,61 @@ joints_ = {
     'rx78_Null_016': {'mimic': 'rx78_Null_017', 'axis': [1, 0, 0]},
 
     # head
-    'rx78_Null_015': {'name': 'head_neck_y', 'axis': [0, 0, 1]},
-    'rx78_Null_014': {'name': 'head_neck_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 5},
+    'rx78_Null_015': {'name': 'head_neck_y', 'axis': [0, 0, 1], 'pid': head_pid},
+    'rx78_Null_014': {'name': 'head_neck_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 5, 'pid': head_pid},
 
     # larm
     'rx78_Null_004': {'name': 'larm_shoulder_p', 'axis': [1, 0, 0]},
     'rx78_Null_001': {'name': 'larm_shoulder_r', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 6},
     'rx78_Null_002': {'name': 'larm_shoulder_y', 'axis': [0, 0, 1]},
     'rx78_Null_003': {'name': 'larm_elbow_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 3, 'limit_upper': math.pi / 24},
-    'rx78_Null_066': {'mimic': 'rx78_Null_003', 'axis': [1, 0, 0]},
+    'rx78_Null_066': {'mimic': 'rx78_Null_003', 'axis': [1, 0, 0], 'pid': elbow_p_mimic_pid},
     'rx78_Null_067': {'name': 'larm_wrist_y', 'axis': [0, 0, 1], 'pid': wrist_pid},
     'rx78_Null_069': {'name': 'larm_wrist_r', 'axis': [0, -1, 0], 'pid': wrist_pid},
     'rx78_Null_048': {'joint_type': 'fixed'},  # shoulder-p cover
     'rx78_Null_065': {'joint_type': 'fixed'},  # elbow-p internal
     # left hand
-    'rx78_Null_059': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},  # index
-      'rx78_Null_060': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_061': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
+    'rx78_Null_059': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},  # index
+      'rx78_Null_060': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_061': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
     'rx78_Null_062': {'name': 'larm_gripper', 'axis': [0, 1, 0], 'limit_lower': -math.pi / 24, 'pid': gripper_pid},  # thumb
-      'rx78_Null_063': {'mimic': 'rx78_Null_062', 'mimic_offset': -math.pi / 4, 'axis': [1, 0, 0]},
-      'rx78_Null_064': {'mimic': 'rx78_Null_062', 'axis': [1, 0, 0]},
-    'rx78_Null_068': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_070': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_071': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-    'rx78_Null_072': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_073': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_074': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-    'rx78_Null_075': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_076': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
-      'rx78_Null_077': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0]},
+      'rx78_Null_063': {'mimic': 'rx78_Null_062', 'mimic_offset': -math.pi / 4, 'axis': [1, 0, 0], 'pid': finger_pid},
+      'rx78_Null_064': {'mimic': 'rx78_Null_062', 'axis': [1, 0, 0], 'pid': finger_pid},
+    'rx78_Null_068': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_070': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_071': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+    'rx78_Null_072': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_073': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_074': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+    'rx78_Null_075': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_076': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
+      'rx78_Null_077': {'mimic': 'rx78_Null_062', 'axis': [0, 1, 0], 'pid': finger_pid},
 
     # rarm
     'rx78_Null_049': {'name': 'rarm_shoulder_p', 'axis': [1, 0, 0]},
     'rx78_Null_050': {'name': 'rarm_shoulder_r', 'axis': [0, -1, 0], 'limit_upper': math.pi / 6},
     'rx78_Null_051': {'name': 'rarm_shoulder_y', 'axis': [0, 0, 1]},
     'rx78_Null_052': {'name': 'rarm_elbow_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 3, 'limit_upper': math.pi / 24},
-    'rx78_Null_053': {'mimic': 'rx78_Null_052', 'axis': [1, 0, 0]},
+    'rx78_Null_053': {'mimic': 'rx78_Null_052', 'axis': [1, 0, 0], 'pid': elbow_p_mimic_pid},
     'rx78_Null_054': {'name': 'rarm_wrist_y', 'axis': [0, 0, 1], 'pid': wrist_pid},
     'rx78_Null_055': {'name': 'rarm_wrist_r', 'axis': [0, -1, 0], 'pid': wrist_pid},
     'rx78_Null_081': {'joint_type': 'fixed'},  # shoulder-p cover
     # right hand
-    'rx78_Null_021': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},  # middle
-      'rx78_Null_022': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-      'rx78_Null_023': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-    'rx78_Null_024': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},  # index
-      'rx78_Null_025': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-      'rx78_Null_026': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-    'rx78_Null_027': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},  # litle
-      'rx78_Null_028': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-      'rx78_Null_029': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
+    'rx78_Null_021': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},  # middle
+      'rx78_Null_022': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+      'rx78_Null_023': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+    'rx78_Null_024': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},  # index
+      'rx78_Null_025': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+      'rx78_Null_026': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+    'rx78_Null_027': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},  # litle
+      'rx78_Null_028': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+      'rx78_Null_029': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
     'rx78_Null_056': {'name': 'rarm_gripper', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 24, 'pid': gripper_pid},  # thumb
-      'rx78_Null_057': {'mimic': 'rx78_Null_056', 'mimic_offset': -math.pi / 4, 'axis': [1, 0, 0]},
-      'rx78_Null_058': {'mimic': 'rx78_Null_056', 'axis': [1, 0, 0]},
-    'rx78_Null_078': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},  # ring
-      'rx78_Null_079': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
-      'rx78_Null_080': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0]},
+      'rx78_Null_057': {'mimic': 'rx78_Null_056', 'mimic_offset': -math.pi / 4, 'axis': [1, 0, 0], 'pid': finger_pid},
+      'rx78_Null_058': {'mimic': 'rx78_Null_056', 'axis': [1, 0, 0], 'pid': finger_pid},
+    'rx78_Null_078': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},  # ring
+      'rx78_Null_079': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
+      'rx78_Null_080': {'mimic': 'rx78_Null_056', 'axis': [0, -1, 0], 'pid': finger_pid},
 
     # lleg
     'rx78_Null_033': {'mimic': 'rx78_Null_035', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # back cover
@@ -137,7 +142,7 @@ joints_ = {
     'rx78_object_029': {'name': 'lleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 4, 'pid': crotch_r_pid},  # hack for crotch-r _035->_029->_036
     'rx78_Null_036': {'name': 'lleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_029', 'pid': crotch_y_pid},
     'rx78_Null_037': {'name': 'lleg_knee_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 24, 'limit_upper': math.pi / 3, 'pid': knee_p_pid},
-    'rx78_Null_038': {'mimic': 'rx78_Null_037', 'axis': [1, 0, 0]},
+    'rx78_Null_038': {'mimic': 'rx78_Null_037', 'axis': [1, 0, 0], 'pid': knee_p_mimic_pid},
     'rx78_Null_039': {'name': 'lleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': ankle_pid},
     'rx78_Null_041': {'name': 'lleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
@@ -146,7 +151,7 @@ joints_ = {
     'rx78_Null_043': {'joint_type': 'fixed'},  # sole
     'rx78_Null_044': {'joint_type': 'fixed'},  # sole
     'rx78_Null_045': {'joint_type': 'fixed'},  # sole
-    'rx78_Null_046': {'mimic': 'rx78_Null_039', 'mimic_multiplier': -0.5, 'axis': [1, 0, 0]},  # ankle cover
+    'rx78_Null_046': {'mimic': 'rx78_Null_039', 'mimic_multiplier': -0.5, 'axis': [1, 0, 0], 'pid': ankle_p_mimic_pid},  # ankle cover
 
     # rleg
     'rx78_Null_084': {'mimic': 'rx78_Null_085', 'mimic_multiplier': 0.5, 'pid': cover_pid},  # front cover
@@ -156,7 +161,7 @@ joints_ = {
     'rx78_object_086': {'name': 'rleg_crotch_r', 'joint_type': 'revolute', 'axis': [0, -1, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 12, 'pid': crotch_r_pid},  # hack for crotch-r _085->_086->_086
     'rx78_Null_086': {'name': 'rleg_crotch_y', 'axis': [0, 0, 1], 'parent': 'rx78_object_086', 'pid': crotch_y_pid},
     'rx78_Null_087': {'name': 'rleg_knee_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 24, 'limit_upper': math.pi / 3, 'pid': knee_p_pid},
-    'rx78_Null_088': {'mimic': 'rx78_Null_087', 'axis': [1, 0, 0]},
+    'rx78_Null_088': {'mimic': 'rx78_Null_087', 'axis': [1, 0, 0], 'pid': knee_p_mimic_pid},
     'rx78_Null_089': {'name': 'rleg_ankle_p', 'axis': [1, 0, 0], 'limit_lower': -math.pi / 4, 'limit_upper': math.pi / 4, 'pid': ankle_pid},
     'rx78_Null_091': {'name': 'rleg_ankle_r', 'axis': [-1, 0, 0], 'limit_lower': -math.pi / 12, 'limit_upper': math.pi / 12, 'pid': ankle_pid},
 
@@ -165,7 +170,7 @@ joints_ = {
     'rx78_Null_093': {'joint_type': 'fixed'},  # sole
     'rx78_Null_094': {'joint_type': 'fixed'},  # sole
     'rx78_Null_095': {'joint_type': 'fixed'},  # sole
-    'rx78_Null_030': {'mimic': 'rx78_Null_089', 'mimic_multiplier': -0.5, 'axis': [1, 0, 0]},  # ankle cover
+    'rx78_Null_030': {'mimic': 'rx78_Null_089', 'mimic_multiplier': -0.5, 'axis': [1, 0, 0], 'pid': ankle_p_mimic_pid},  # ankle cover
 
 }
 
@@ -547,12 +552,13 @@ def write_control_file():
         for i, j in joints_.items():
             if 'mimic' in j:
                 if 'pid' in j:
-                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, j['pid']['p'], j['pid']['i'], j['pid']['d']))
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}' % (i, j['pid']['p'], j['pid']['i'], j['pid']['d']))
                 elif 'pid' in joints_[j['mimic']]:
                     jj = joints_[j['mimic']]
-                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}' % (i, jj['pid']['p'], jj['pid']['i'], jj['pid']['d']))
                 else:
-                    f.write('    %s_joint : {p: %f, i: %f, d: %f}\n' % (i, default_pid['p'], default_pid['i'], default_pid['d']))
+                    f.write('    %s_joint : {p: %f, i: %f, d: %f}' % (i, default_pid['p'], default_pid['i'], default_pid['d']))
+                f.write('    # mimic joint of %s_joint\n' % (joints_[j['mimic']]['name']))
     f.write('  constraints:\n')
     f.write('    goal_time: 0.6\n')
     f.write('    stopped_velocity_tolerance: 0.05\n')
