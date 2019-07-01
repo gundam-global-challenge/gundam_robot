@@ -374,12 +374,12 @@ def add_gazebo_nodes(robot):
             etree.SubElement(g, 'mu1').text = '9000'
             etree.SubElement(g, 'mu2').text = '1.5'
             # sole links ** GGC HACK
-            if l.name in ["rx78_object_034_link", "rx78_object_091_link", 'rx78_object_089_link', 'rx78_object_032_link']:
-                etree.SubElement(g, 'kp').text = '100000.0'
-                etree.SubElement(g, 'kd').text = '100.0'
+            if l.name in ['rx78_Null_090_link', 'rx78_Null_091_link', 'rx78_Null_040_link', 'rx78_Null_041_link']:
+                etree.SubElement(g, 'mu2').text = '9000'
+                etree.SubElement(g, 'kp').text = '140000000.0'
+                etree.SubElement(g, 'kd').text = '280000.0'
                 etree.SubElement(g, 'fdir1').text = '1 0 0'
-                etree.SubElement(g, 'maxVel').text = '1.0'
-                etree.SubElement(g, 'minDepth').text = '0.001'
+                etree.SubElement(g, 'maxVel').text = '10.0'
             robot.add_aggregate('gazebo', g)
 
             # avoid null link for crotch_p ** GGC HACK

@@ -4744,6 +4744,11 @@
     <selfCollide>false</selfCollide>
     <mu1>9000</mu1>
     <mu2>1.5</mu2>
+    <mu2>9000</mu2>
+    <kp>140000000.0</kp>
+    <kd>280000.0</kd>
+    <fdir1>1 0 0</fdir1>
+    <maxVel>10.0</maxVel>
   </gazebo>
   <gazebo reference="rleg_ankle_r">
     <provideFeedback>1</provideFeedback>
@@ -5020,6 +5025,11 @@
     <selfCollide>false</selfCollide>
     <mu1>9000</mu1>
     <mu2>1.5</mu2>
+    <mu2>9000</mu2>
+    <kp>140000000.0</kp>
+    <kd>280000.0</kd>
+    <fdir1>1 0 0</fdir1>
+    <maxVel>10.0</maxVel>
   </gazebo>
   <gazebo reference="lleg_ankle_r">
     <provideFeedback>1</provideFeedback>
