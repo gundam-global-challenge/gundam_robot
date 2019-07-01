@@ -28,7 +28,7 @@ To control joint angles, try a sample script.
 $ rosrun gundam_rx78_control joint_trajectory_client_example.py
 ```
 
-Note that currently, we have several limitation on this simulation, the robot is pinned to the world, we only have position controller etc.
+Note that currently, we have several limitation on this simulation, we only have position controller etc.
 
 You can also find sample motion control files in the `gundam_rx78_control/sample` directory.
 
