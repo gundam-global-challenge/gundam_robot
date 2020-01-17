@@ -23,22 +23,25 @@
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
         args="-urdf -model GGC_TestModel_rx78_20170112 -param robot_description
-              -z 12
+              -z 0.3 -P -0.1
 
               -J larm_shoulder_p  0.1
               -J larm_shoulder_r  0.3
               -J larm_shoulder_y -0.1
               -J larm_elbow_p    -0.1
+	      -J larm_elbow_p2    -0.1
 
               -J rarm_shoulder_p  0.1
               -J rarm_shoulder_r -0.3
               -J rarm_shoulder_y  0.1
               -J rarm_elbow_p    -0.1
+	      -J rarm_elbow_p2    -0.1
 
               -J lleg_crotch_p   -0.35
               -J lleg_crotch_r    0.2
               -J lleg_crotch_y    0.35
               -J lleg_knee_p      0.2
+	      -J lleg_knee_p2      0.2
               -J lleg_ankle_p     0.05
               -J lleg_ankle_r    -0.05
 
@@ -46,6 +49,7 @@
               -J rleg_crotch_r   -0.1
               -J rleg_crotch_y   -0.15
               -J rleg_knee_p      0.05
+	      -J rleg_knee_p2      0.05
               -J rleg_ankle_p    -0.2
               -J rleg_ankle_r     0.1
 

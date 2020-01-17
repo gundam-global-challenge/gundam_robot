@@ -64,6 +64,7 @@ Finally, rename the file name to `urdf/gundam_rx78.urdf`
 
 ```
 $ roscd gundam_rx78_description
-$ python ./scripts/ggc_dae_to_urdf.py GGC_TestModel_rx78_20170112.DAE
+$ python ./scripts/ggc_dae_to_urdf.py GGC_TestModel_rx78_20170112.DAE --write_mesh
 $ mv urdf/GGC_TestModel_rx78_20170112.urdf urdf/gundam_rx78.urdf
 ```
+You have to use urdf_parser_py version 0.4.0 instead of version 0.4.1.
