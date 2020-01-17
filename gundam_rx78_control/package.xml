@@ -11,6 +11,7 @@
   <url type="website">http://wiki.ros.org/gundam_rx78_control</url>
 
   <author email="kei.okada@gmail.com">Kei Okada</author>
+  <author email="hiraoka@jsk.imi.i.u-tokyo.ac.jp">Naoki Hiraoka</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
