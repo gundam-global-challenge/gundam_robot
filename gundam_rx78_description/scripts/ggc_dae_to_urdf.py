@@ -409,7 +409,10 @@ def retrive_node(nodes, joints_dict, links_dict, parent=None):
                     filename='package://gundam_rx78_description/meshes/{}.dae'.format(
                         g.id))))
             # get bounding box of scene
-            l.collisions.append(get_bouding_box(c.geometries))
+            l.collisions.append(Collision(
+                geometry=Mesh(
+                    filename='package://gundam_rx78_description/meshes/{}.dae'.format(
+                        g.id))))
             if l.name in link_dict:
                 link_dict[l.name].append(g)
             else:
