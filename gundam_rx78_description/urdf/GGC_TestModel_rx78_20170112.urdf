@@ -3172,7 +3172,7 @@
   </transmission>
   <gazebo reference="base_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3182,7 +3182,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_018_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3192,7 +3192,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_017_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3202,7 +3202,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_016_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3212,7 +3212,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_015_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3222,7 +3222,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_014_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3232,7 +3232,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_013_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3242,7 +3242,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_012_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3252,7 +3252,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_011_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3262,7 +3262,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_010_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3272,7 +3272,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_009_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3282,7 +3282,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_007_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3292,7 +3292,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_008_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3302,7 +3302,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_005_addition_null0_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3312,7 +3312,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_005_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3322,7 +3322,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_006_addition_null0_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3332,7 +3332,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_006_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3342,7 +3342,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_004_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3352,7 +3352,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_001_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3362,7 +3362,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_002_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3372,7 +3372,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_003_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3382,7 +3382,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_066_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3392,7 +3392,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_067_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3402,7 +3402,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_069_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3412,7 +3412,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_068_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3422,7 +3422,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_070_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3432,7 +3432,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_071_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3442,7 +3442,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_072_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3452,7 +3452,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_073_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3462,7 +3462,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_074_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3472,7 +3472,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_075_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3482,7 +3482,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_076_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3492,7 +3492,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_077_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3502,7 +3502,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_059_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3512,7 +3512,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_060_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3522,7 +3522,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_061_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3532,7 +3532,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_062_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3542,7 +3542,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_063_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3552,7 +3552,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_064_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3562,7 +3562,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_065_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3572,7 +3572,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_048_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3582,7 +3582,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_049_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3592,7 +3592,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_050_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3602,7 +3602,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_051_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3612,7 +3612,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_052_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3622,7 +3622,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_053_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3632,7 +3632,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_054_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3642,7 +3642,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_055_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3652,7 +3652,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_056_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3662,7 +3662,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_057_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3672,7 +3672,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_058_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3682,7 +3682,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_021_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3692,7 +3692,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_022_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3702,7 +3702,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_023_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3712,7 +3712,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_024_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3722,7 +3722,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_025_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3732,7 +3732,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_026_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3742,7 +3742,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_027_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3752,7 +3752,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_028_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3762,7 +3762,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_029_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3772,7 +3772,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_078_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3782,7 +3782,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_079_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3792,7 +3792,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_080_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3802,7 +3802,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_081_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3812,7 +3812,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_082_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3822,7 +3822,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_083_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3832,7 +3832,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_084_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3842,7 +3842,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_031_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3852,7 +3852,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_032_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3862,7 +3862,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_033_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3872,7 +3872,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_034_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3882,7 +3882,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_047_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3892,7 +3892,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_035_addition_null0_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3902,7 +3902,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_035_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3912,7 +3912,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_036_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3922,7 +3922,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_037_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3932,7 +3932,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_038_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3942,7 +3942,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_039_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3952,7 +3952,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_040_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3962,7 +3962,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_041_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3972,7 +3972,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_042_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3982,7 +3982,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_043_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -3992,7 +3992,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_044_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4002,7 +4002,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_045_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4012,7 +4012,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_046_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4022,7 +4022,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_085_addition_null0_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4032,7 +4032,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_085_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4042,7 +4042,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_086_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4052,7 +4052,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_087_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4062,7 +4062,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_088_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4072,7 +4072,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_089_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4082,7 +4082,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_090_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4092,7 +4092,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_091_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4102,7 +4102,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_092_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4112,7 +4112,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_093_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4122,7 +4122,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_094_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4132,7 +4132,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_095_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
@@ -4142,7 +4142,7 @@
   </gazebo>
   <gazebo reference="rx78_Null_030_link">
     <selfCollide>false</selfCollide>
-    <mu1>9000</mu1>
+    <mu1>1.5</mu1>
     <mu2>1.5</mu2>
     <mu2>9000</mu2>
     <kp>140000000.0</kp>
