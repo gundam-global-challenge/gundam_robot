@@ -1,0 +1,57 @@
+<launch>
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="gazebo_paused" default="true" doc="start gazebo with paused mode, DO NOT CHANGE THIS" />
+  <arg name="paused" default="false" doc="set true to start gazebo with paused mode" />
+  <arg name="use_sim_time" default="true" doc="use simulation clock" />
+  <arg name="gui" default="true" doc="launch gzclient, GUI for gazebo simulation" />
+  <arg name="headless" default="false" doc="run gazebo with headless mode" />
+  <arg name="debug" default="false" doc="run gazebo with debug mode" />
+
+  <!-- Start empty_world -->
+  <include file="$(find gundam_rx78_gazebo)/launch/empty_world.xml" pass_all_args="true" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -model GGC_TestModel_rx78_20170112 -param robot_description
+              -z -2.0 -P 0.0
+
+              -J rleg_crotch_p -1.05797
+              -J rleg_crotch_r -0.05223
+              -J rleg_crotch_y  0.02413
+              -J rleg_knee_p  0.77323
+              -J rleg_knee_p2  0.806956
+              -J rleg_ankle_p -0.52273
+              -J rleg_ankle_r  0.058913
+              -J lleg_crotch_p -1.0579
+              -J lleg_crotch_r  0.052234
+              -J lleg_crotch_y -0.02414
+              -J lleg_knee_p  0.77323
+              -J lleg_knee_p2  0.806955
+              -J lleg_ankle_p -0.522737
+              -J lleg_ankle_r -0.05891
+              -J torso_waist_y  0.
+              -J torso_waist_p  0.
+              -J torso_waist_p2  0.
+              -J head_neck_y  0.
+              -J head_neck_p  0.17453
+              -J rarm_shoulder_p  0.349066
+              -J rarm_shoulder_r -0.523599
+              -J rarm_shoulder_y -0.174533
+              -J rarm_elbow_p -0.610865
+              -J rarm_elbow_p2 -0.610865
+              -J rarm_wrist_y -0.436332
+              -J rarm_wrist_r -0.08726
+              -J rarm_gripper  1.047
+              -J larm_shoulder_p  0.34906
+              -J larm_shoulder_r  0.52359
+              -J larm_shoulder_y  0.174533
+              -J larm_elbow_p -0.610865
+              -J larm_elbow_p2 -0.61086
+              -J larm_wrist_y  0.43633
+              -J larm_wrist_r  0.08726
+              -J larm_gripper  1.0472
+              " />
+  <!-- ros_control gundam_rx78 launch file -->
+  <include file="$(find gundam_rx78_control)/launch/gundam_rx78_control.launch" />
+  
+</launch>

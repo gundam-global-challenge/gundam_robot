@@ -1,0 +1,33 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="gazebo_paused" default="true" doc="start gazebo with paused mode, DO NOT CHANGE THIS" />
+  <arg name="paused" default="false" doc="set true to start gazebo with paused mode" />
+  <arg name="use_sim_time" default="true" doc="use simulation clock" />
+  <arg name="gui" default="true" doc="launch gzclient, GUI for gazebo simulation" />
+  <arg name="headless" default="false" doc="run gazebo with headless mode" />
+  <arg name="debug" default="false" doc="run gazebo with debug mode" />
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gundam_rx78_gazebo)/worlds/gundam_rx78.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg gazebo_paused)"/> <!-- at this moment, the robto needs pause start -->
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Start gazebo simulator by calling /gazebo/unpause_physics -->
+  <node name="start_simulator" pkg="gundam_rx78_gazebo" type="start_simulator.py" unless="$(arg paused)" />
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <include file="$(find gundam_rx78_description)/launch/upload.launch" />
+
+  <!-- forwards odometry information to tf -->
+  <node pkg="fake_localization" name="fake_localization"  type="fake_localization" output="screen" >
+    <remap from="base_pose_ground_truth" to="base_link_ground_truth" />
+    <param name="~base_frame_id" value="base_link" />
+    <param name="~odom_frame_id" value="base_link" />
+  </node>
+</launch>
