@@ -22,6 +22,8 @@
   <exec_depend>gundam_rx78_description</exec_depend>
 
   <test_depend>roslaunch</test_depend>
+  <test_depend>roslint</test_depend>
+  <test_depend>rostest</test_depend>
 
   <export/>
 
