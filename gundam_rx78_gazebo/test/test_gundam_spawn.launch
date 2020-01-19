@@ -6,8 +6,6 @@
     <arg name="headless" default="true"/>
   </include>
 
-  <node name="start_simulator" pkg="gundam_rx78_gazebo" type="start_simulator.py" />
-
   <!-- test joint state -->
   <param name="joint_states_hz_test/topic" value="joint_states" />
   <param name="joint_states_hz_test/hz" value="50.0" />
