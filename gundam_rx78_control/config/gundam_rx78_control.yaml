@@ -4,41 +4,53 @@ joint_state_controller:
   publish_rate: 50
 
 # Position Controllers ---------------------------------------
-lleg_ankle_p_position:
-  type: effort_controllers/JointPositionController
-  joint: lleg_ankle_p
-  pid: {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-  mimic_joints:
-    rx78_Null_046_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_046_joint
-      pid: {p: 500000.000000, i: 500.000000, d: 50000.000000}
 lleg_crotch_p_position:
   type: effort_controllers/JointPositionController
   joint: lleg_crotch_p
-  pid: {p: 400000000.000000, i: 4000000.000000, d: 2000000.000000}
+  pid: {p: 400000000.000000, i: 4000000.000000, d: 500000.000000}
   mimic_joints:
-    rx78_Null_034_joint_position:
+    lleg_crotch_p_front_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_034_joint
+      joint: lleg_crotch_p_front_mimic
       pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
-    rx78_Null_033_joint_position:
+    lleg_crotch_p_back_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_033_joint
+      joint: lleg_crotch_p_back_mimic
+      pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
+torso_rthrust_p_position:
+  type: effort_controllers/JointPositionController
+  joint: torso_rthrust_p
+  pid: {p: 10000000.000000, i: 500.000000, d: 20000.000000}
+lleg_knee_p2_position:
+  type: effort_controllers/JointPositionController
+  joint: lleg_knee_p2
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
+lleg_ankle_p_position:
+  type: effort_controllers/JointPositionController
+  joint: lleg_ankle_p
+  pid: {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+  mimic_joints:
+    lleg_ankle_p_mimic_position:
+      type: effort_controllers/JointPositionController
+      joint: lleg_ankle_p_mimic
+      pid: {p: 500000.000000, i: 500.000000, d: 50000.000000}
+lleg_crotch_r_position:
+  type: effort_controllers/JointPositionController
+  joint: lleg_crotch_r
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+  mimic_joints:
+    lleg_crotch_r_mimic_position:
+      type: effort_controllers/JointPositionController
+      joint: lleg_crotch_r_mimic
       pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
 lleg_crotch_y_position:
   type: effort_controllers/JointPositionController
   joint: lleg_crotch_y
-  pid: {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
 lleg_knee_p_position:
   type: effort_controllers/JointPositionController
   joint: lleg_knee_p
-  pid: {p: 100000000.000000, i: 100000.000000, d: 1000000.000000}
-  mimic_joints:
-    rx78_Null_038_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_038_joint
-      pid: {p: 10000000.000000, i: 100000.000000, d: 1000000.000000}
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
 rarm_shoulder_p_position:
   type: effort_controllers/JointPositionController
   joint: rarm_shoulder_p
@@ -46,16 +58,24 @@ rarm_shoulder_p_position:
 lleg_ankle_r_position:
   type: effort_controllers/JointPositionController
   joint: lleg_ankle_r
-  pid: {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
+  pid: {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+  mimic_joints:
+    lleg_ankle_r_mimic_position:
+      type: effort_controllers/JointPositionController
+      joint: lleg_ankle_r_mimic
+      pid: {p: 100000000.000000, i: 1000000.000000, d: 50000.000000}
+torso_lthrust_p_position:
+  type: effort_controllers/JointPositionController
+  joint: torso_lthrust_p
+  pid: {p: 10000000.000000, i: 500.000000, d: 20000.000000}
 rarm_elbow_p_position:
   type: effort_controllers/JointPositionController
   joint: rarm_elbow_p
-  pid: {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-  mimic_joints:
-    rx78_Null_053_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_053_joint
-      pid: {p: 1000000.000000, i: 500.000000, d: 200000.000000}
+  pid: {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
+rarm_elbow_p2_position:
+  type: effort_controllers/JointPositionController
+  joint: rarm_elbow_p2
+  pid: {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
 rarm_shoulder_r_position:
   type: effort_controllers/JointPositionController
   joint: rarm_shoulder_r
@@ -67,64 +87,64 @@ rarm_shoulder_y_position:
 rarm_gripper_position:
   type: effort_controllers/JointPositionController
   joint: rarm_gripper
-  pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
+  pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
   mimic_joints:
-    rx78_Null_058_joint_position:
+    rarm_gripper_thumb2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_058_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_057_joint_position:
+      joint: rarm_gripper_thumb2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_thumb1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_057_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_080_joint_position:
+      joint: rarm_gripper_thumb1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_ring2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_080_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_078_joint_position:
+      joint: rarm_gripper_ring2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_ring0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_078_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_079_joint_position:
+      joint: rarm_gripper_ring0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_ring1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_079_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_023_joint_position:
+      joint: rarm_gripper_ring1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_middle2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_023_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_022_joint_position:
+      joint: rarm_gripper_middle2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_middle1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_022_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_021_joint_position:
+      joint: rarm_gripper_middle1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_middle0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_021_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_027_joint_position:
+      joint: rarm_gripper_middle0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_little0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_027_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_026_joint_position:
+      joint: rarm_gripper_little0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_index2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_026_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_025_joint_position:
+      joint: rarm_gripper_index2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_index1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_025_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_024_joint_position:
+      joint: rarm_gripper_index1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_index0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_024_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_029_joint_position:
+      joint: rarm_gripper_index0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_little2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_029_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_028_joint_position:
+      joint: rarm_gripper_little2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    rarm_gripper_little1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_028_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
+      joint: rarm_gripper_little1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
 rarm_wrist_y_position:
   type: effort_controllers/JointPositionController
   joint: rarm_wrist_y
@@ -137,75 +157,87 @@ larm_wrist_y_position:
   type: effort_controllers/JointPositionController
   joint: larm_wrist_y
   pid: {p: 100000.000000, i: 50.000000, d: 20000.000000}
+larm_elbow_p2_position:
+  type: effort_controllers/JointPositionController
+  joint: larm_elbow_p2
+  pid: {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
 larm_gripper_position:
   type: effort_controllers/JointPositionController
   joint: larm_gripper
-  pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
+  pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
   mimic_joints:
-    rx78_Null_059_joint_position:
+    larm_gripper_index0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_059_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_064_joint_position:
+      joint: larm_gripper_index0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_thumb2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_064_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_063_joint_position:
+      joint: larm_gripper_thumb2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_thumb1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_063_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_061_joint_position:
+      joint: larm_gripper_thumb1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_index2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_061_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_060_joint_position:
+      joint: larm_gripper_index2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_index1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_060_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_068_joint_position:
+      joint: larm_gripper_index1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_middle0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_068_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_070_joint_position:
+      joint: larm_gripper_middle0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_middle1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_070_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_071_joint_position:
+      joint: larm_gripper_middle1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_middle2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_071_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_072_joint_position:
+      joint: larm_gripper_middle2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_ring0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_072_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_073_joint_position:
+      joint: larm_gripper_ring0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_ring1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_073_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_074_joint_position:
+      joint: larm_gripper_ring1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_ring2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_074_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_075_joint_position:
+      joint: larm_gripper_ring2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_little0_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_075_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_076_joint_position:
+      joint: larm_gripper_little0_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_little1_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_076_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
-    rx78_Null_077_joint_position:
+      joint: larm_gripper_little1_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
+    larm_gripper_little2_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_077_joint
-      pid: {p: 100000.000000, i: 100.000000, d: 500.000000}
+      joint: larm_gripper_little2_mimic
+      pid: {p: 100000.000000, i: 100.000000, d: 100.000000}
 larm_wrist_r_position:
   type: effort_controllers/JointPositionController
   joint: larm_wrist_r
   pid: {p: 100000.000000, i: 50.000000, d: 20000.000000}
+torso_rthrust_r_position:
+  type: effort_controllers/JointPositionController
+  joint: torso_rthrust_r
+  pid: {p: 10000000.000000, i: 500.000000, d: 20000.000000}
 larm_shoulder_p_position:
   type: effort_controllers/JointPositionController
   joint: larm_shoulder_p
   pid: {p: 10000000.000000, i: 500.000000, d: 200000.000000}
+torso_lthrust_r_position:
+  type: effort_controllers/JointPositionController
+  joint: torso_lthrust_r
+  pid: {p: 10000000.000000, i: 500.000000, d: 20000.000000}
 larm_shoulder_r_position:
   type: effort_controllers/JointPositionController
   joint: larm_shoulder_r
@@ -213,69 +245,49 @@ larm_shoulder_r_position:
 larm_elbow_p_position:
   type: effort_controllers/JointPositionController
   joint: larm_elbow_p
-  pid: {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-  mimic_joints:
-    rx78_Null_066_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_066_joint
-      pid: {p: 1000000.000000, i: 500.000000, d: 200000.000000}
+  pid: {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
 larm_shoulder_y_position:
   type: effort_controllers/JointPositionController
   joint: larm_shoulder_y
   pid: {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-lleg_crotch_r_position:
-  type: effort_controllers/JointPositionController
-  joint: lleg_crotch_r
-  pid: {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
-  mimic_joints:
-    rx78_Null_047_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_047_joint
-      pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
 rleg_ankle_p_position:
   type: effort_controllers/JointPositionController
   joint: rleg_ankle_p
-  pid: {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
+  pid: {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
   mimic_joints:
-    rx78_Null_030_joint_position:
+    rleg_ankle_p_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_030_joint
+      joint: rleg_ankle_p_mimic
       pid: {p: 500000.000000, i: 500.000000, d: 50000.000000}
-rleg_crotch_p_position:
+rleg_knee_p2_position:
   type: effort_controllers/JointPositionController
-  joint: rleg_crotch_p
-  pid: {p: 400000000.000000, i: 4000000.000000, d: 2000000.000000}
+  joint: rleg_knee_p2
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
+rleg_crotch_r_position:
+  type: effort_controllers/JointPositionController
+  joint: rleg_crotch_r
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
   mimic_joints:
-    rx78_Null_031_joint_position:
+    rleg_crotch_r_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_031_joint
-      pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
-    rx78_Null_084_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_084_joint
+      joint: rleg_crotch_r_mimic
       pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
 rleg_knee_p_position:
   type: effort_controllers/JointPositionController
   joint: rleg_knee_p
-  pid: {p: 100000000.000000, i: 100000.000000, d: 1000000.000000}
-  mimic_joints:
-    rx78_Null_088_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_088_joint
-      pid: {p: 10000000.000000, i: 100000.000000, d: 1000000.000000}
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
 rleg_crotch_y_position:
   type: effort_controllers/JointPositionController
   joint: rleg_crotch_y
-  pid: {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
+  pid: {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+torso_waist_p2_position:
+  type: effort_controllers/JointPositionController
+  joint: torso_waist_p2
+  pid: {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
 torso_waist_p_position:
   type: effort_controllers/JointPositionController
   joint: torso_waist_p
-  pid: {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}
-  mimic_joints:
-    rx78_Null_016_joint_position:
-      type: effort_controllers/JointPositionController
-      joint: rx78_Null_016_joint
-      pid: {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}
+  pid: {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
 head_neck_p_position:
   type: effort_controllers/JointPositionController
   joint: head_neck_p
@@ -287,19 +299,28 @@ head_neck_y_position:
 torso_waist_y_position:
   type: effort_controllers/JointPositionController
   joint: torso_waist_y
-  pid: {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}
+  pid: {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
 rleg_ankle_r_position:
   type: effort_controllers/JointPositionController
   joint: rleg_ankle_r
-  pid: {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-rleg_crotch_r_position:
-  type: effort_controllers/JointPositionController
-  joint: rleg_crotch_r
-  pid: {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
+  pid: {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
   mimic_joints:
-    rx78_Null_032_joint_position:
+    rleg_ankle_r_mimic_position:
       type: effort_controllers/JointPositionController
-      joint: rx78_Null_032_joint
+      joint: rleg_ankle_r_mimic
+      pid: {p: 100000000.000000, i: 1000000.000000, d: 50000.000000}
+rleg_crotch_p_position:
+  type: effort_controllers/JointPositionController
+  joint: rleg_crotch_p
+  pid: {p: 400000000.000000, i: 4000000.000000, d: 500000.000000}
+  mimic_joints:
+    rleg_crotch_p_back_mimic_position:
+      type: effort_controllers/JointPositionController
+      joint: rleg_crotch_p_back_mimic
+      pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
+    rleg_crotch_p_front_mimic_position:
+      type: effort_controllers/JointPositionController
+      joint: rleg_crotch_p_front_mimic
       pid: {p: 50000.000000, i: 500.000000, d: 5000.000000}
 
 # Joint Trajectory Controllers ---------------------------------------
@@ -307,150 +328,162 @@ fullbody_controller:
 #  type: effort_controllers/JointTrajectoryController
   type: gundam_rx78_control/JointTrajectoryController
   joints:
-    - lleg_ankle_p
     - lleg_crotch_p
+    - torso_rthrust_p
+    - lleg_knee_p2
+    - lleg_ankle_p
+    - lleg_crotch_r
     - lleg_crotch_y
     - lleg_knee_p
     - rarm_shoulder_p
     - lleg_ankle_r
+    - torso_lthrust_p
     - rarm_elbow_p
+    - rarm_elbow_p2
     - rarm_shoulder_r
     - rarm_shoulder_y
     - rarm_gripper
     - rarm_wrist_y
     - rarm_wrist_r
     - larm_wrist_y
+    - larm_elbow_p2
     - larm_gripper
     - larm_wrist_r
+    - torso_rthrust_r
     - larm_shoulder_p
+    - torso_lthrust_r
     - larm_shoulder_r
     - larm_elbow_p
     - larm_shoulder_y
-    - lleg_crotch_r
     - rleg_ankle_p
-    - rleg_crotch_p
+    - rleg_knee_p2
+    - rleg_crotch_r
     - rleg_knee_p
     - rleg_crotch_y
+    - torso_waist_p2
     - torso_waist_p
     - head_neck_p
     - head_neck_y
     - torso_waist_y
     - rleg_ankle_r
-    - rleg_crotch_r
+    - rleg_crotch_p
   mimic_joints:
-    - rx78_Null_038_joint # lleg_knee_p
-    - rx78_Null_034_joint # lleg_crotch_p
-    - rx78_Null_030_joint # rleg_ankle_p
-    - rx78_Null_031_joint # rleg_crotch_p
-    - rx78_Null_032_joint # rleg_crotch_r
-    - rx78_Null_033_joint # lleg_crotch_p
-    - rx78_Null_047_joint # lleg_crotch_r
-    - rx78_Null_046_joint # lleg_ankle_p
-    - rx78_Null_058_joint # rarm_gripper
-    - rx78_Null_059_joint # larm_gripper
-    - rx78_Null_053_joint # rarm_elbow_p
-    - rx78_Null_057_joint # rarm_gripper
-    - rx78_Null_066_joint # larm_elbow_p
-    - rx78_Null_064_joint # larm_gripper
-    - rx78_Null_063_joint # larm_gripper
-    - rx78_Null_061_joint # larm_gripper
-    - rx78_Null_060_joint # larm_gripper
-    - rx78_Null_068_joint # larm_gripper
-    - rx78_Null_088_joint # rleg_knee_p
-    - rx78_Null_084_joint # rleg_crotch_p
-    - rx78_Null_080_joint # rarm_gripper
-    - rx78_Null_070_joint # larm_gripper
-    - rx78_Null_071_joint # larm_gripper
-    - rx78_Null_072_joint # larm_gripper
-    - rx78_Null_073_joint # larm_gripper
-    - rx78_Null_074_joint # larm_gripper
-    - rx78_Null_075_joint # larm_gripper
-    - rx78_Null_076_joint # larm_gripper
-    - rx78_Null_077_joint # larm_gripper
-    - rx78_Null_078_joint # rarm_gripper
-    - rx78_Null_079_joint # rarm_gripper
-    - rx78_Null_016_joint # torso_waist_p
-    - rx78_Null_023_joint # rarm_gripper
-    - rx78_Null_022_joint # rarm_gripper
-    - rx78_Null_021_joint # rarm_gripper
-    - rx78_Null_027_joint # rarm_gripper
-    - rx78_Null_026_joint # rarm_gripper
-    - rx78_Null_025_joint # rarm_gripper
-    - rx78_Null_024_joint # rarm_gripper
-    - rx78_Null_029_joint # rarm_gripper
-    - rx78_Null_028_joint # rarm_gripper
+    - lleg_crotch_p_front_mimic # lleg_crotch_p
+    - rleg_ankle_p_mimic # rleg_ankle_p
+    - rleg_crotch_p_back_mimic # rleg_crotch_p
+    - rleg_crotch_r_mimic # rleg_crotch_r
+    - lleg_crotch_p_back_mimic # lleg_crotch_p
+    - lleg_ankle_r_mimic # lleg_ankle_r
+    - lleg_crotch_r_mimic # lleg_crotch_r
+    - lleg_ankle_p_mimic # lleg_ankle_p
+    - rarm_gripper_thumb2_mimic # rarm_gripper
+    - larm_gripper_index0_mimic # larm_gripper
+    - rarm_gripper_thumb1_mimic # rarm_gripper
+    - larm_gripper_thumb2_mimic # larm_gripper
+    - larm_gripper_thumb1_mimic # larm_gripper
+    - larm_gripper_index2_mimic # larm_gripper
+    - larm_gripper_index1_mimic # larm_gripper
+    - larm_gripper_middle0_mimic # larm_gripper
+    - rleg_crotch_p_front_mimic # rleg_crotch_p
+    - rarm_gripper_ring2_mimic # rarm_gripper
+    - larm_gripper_middle1_mimic # larm_gripper
+    - larm_gripper_middle2_mimic # larm_gripper
+    - larm_gripper_ring0_mimic # larm_gripper
+    - larm_gripper_ring1_mimic # larm_gripper
+    - larm_gripper_ring2_mimic # larm_gripper
+    - larm_gripper_little0_mimic # larm_gripper
+    - larm_gripper_little1_mimic # larm_gripper
+    - larm_gripper_little2_mimic # larm_gripper
+    - rarm_gripper_ring0_mimic # rarm_gripper
+    - rarm_gripper_ring1_mimic # rarm_gripper
+    - rleg_ankle_r_mimic # rleg_ankle_r
+    - rarm_gripper_middle2_mimic # rarm_gripper
+    - rarm_gripper_middle1_mimic # rarm_gripper
+    - rarm_gripper_middle0_mimic # rarm_gripper
+    - rarm_gripper_little0_mimic # rarm_gripper
+    - rarm_gripper_index2_mimic # rarm_gripper
+    - rarm_gripper_index1_mimic # rarm_gripper
+    - rarm_gripper_index0_mimic # rarm_gripper
+    - rarm_gripper_little2_mimic # rarm_gripper
+    - rarm_gripper_little1_mimic # rarm_gripper
   gains:
-    lleg_ankle_p : {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-    lleg_crotch_p : {p: 400000000.000000, i: 4000000.000000, d: 2000000.000000}
-    lleg_crotch_y : {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
-    lleg_knee_p : {p: 100000000.000000, i: 100000.000000, d: 1000000.000000}
+    lleg_crotch_p : {p: 400000000.000000, i: 4000000.000000, d: 500000.000000}
+    torso_rthrust_p : {p: 10000000.000000, i: 500.000000, d: 20000.000000}
+    lleg_knee_p2 : {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
+    lleg_ankle_p : {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+    lleg_crotch_r : {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+    lleg_crotch_y : {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+    lleg_knee_p : {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
     rarm_shoulder_p : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-    lleg_ankle_r : {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-    rarm_elbow_p : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
+    lleg_ankle_r : {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+    torso_lthrust_p : {p: 10000000.000000, i: 500.000000, d: 20000.000000}
+    rarm_elbow_p : {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
+    rarm_elbow_p2 : {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
     rarm_shoulder_r : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
     rarm_shoulder_y : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-    rarm_gripper : {p: 100000.000000, i: 100.000000, d: 500.000000}
+    rarm_gripper : {p: 100000.000000, i: 100.000000, d: 100.000000}
     rarm_wrist_y : {p: 100000.000000, i: 50.000000, d: 20000.000000}
     rarm_wrist_r : {p: 100000.000000, i: 50.000000, d: 20000.000000}
     larm_wrist_y : {p: 100000.000000, i: 50.000000, d: 20000.000000}
-    larm_gripper : {p: 100000.000000, i: 100.000000, d: 500.000000}
+    larm_elbow_p2 : {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
+    larm_gripper : {p: 100000.000000, i: 100.000000, d: 100.000000}
     larm_wrist_r : {p: 100000.000000, i: 50.000000, d: 20000.000000}
+    torso_rthrust_r : {p: 10000000.000000, i: 500.000000, d: 20000.000000}
     larm_shoulder_p : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
+    torso_lthrust_r : {p: 10000000.000000, i: 500.000000, d: 20000.000000}
     larm_shoulder_r : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-    larm_elbow_p : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
+    larm_elbow_p : {p: 20000000.000000, i: 1000.000000, d: 40000.000000}
     larm_shoulder_y : {p: 10000000.000000, i: 500.000000, d: 200000.000000}
-    lleg_crotch_r : {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
-    rleg_ankle_p : {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-    rleg_crotch_p : {p: 400000000.000000, i: 4000000.000000, d: 2000000.000000}
-    rleg_knee_p : {p: 100000000.000000, i: 100000.000000, d: 1000000.000000}
-    rleg_crotch_y : {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
-    torso_waist_p : {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}
+    rleg_ankle_p : {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+    rleg_knee_p2 : {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
+    rleg_crotch_r : {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+    rleg_knee_p : {p: 200000000.000000, i: 1000000.000000, d: 100000.000000}
+    rleg_crotch_y : {p: 200000000.000000, i: 1000000.000000, d: 500000.000000}
+    torso_waist_p2 : {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
+    torso_waist_p : {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
     head_neck_p : {p: 1000000.000000, i: 500.000000, d: 200000.000000}
     head_neck_y : {p: 1000000.000000, i: 500.000000, d: 200000.000000}
-    torso_waist_y : {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}
-    rleg_ankle_r : {p: 100000000.000000, i: 5000.000000, d: 1000000.000000}
-    rleg_crotch_r : {p: 200000000.000000, i: 1000000.000000, d: 1000000.000000}
-    rx78_Null_038_joint : {p: 10000000.000000, i: 100000.000000, d: 1000000.000000}    # mimic joint of lleg_knee_p_joint
-    rx78_Null_034_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_p_joint
-    rx78_Null_030_joint : {p: 500000.000000, i: 500.000000, d: 50000.000000}    # mimic joint of rleg_ankle_p_joint
-    rx78_Null_031_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_p_joint
-    rx78_Null_032_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_r_joint
-    rx78_Null_033_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_p_joint
-    rx78_Null_047_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_r_joint
-    rx78_Null_046_joint : {p: 500000.000000, i: 500.000000, d: 50000.000000}    # mimic joint of lleg_ankle_p_joint
-    rx78_Null_058_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_059_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_053_joint : {p: 1000000.000000, i: 500.000000, d: 200000.000000}    # mimic joint of rarm_elbow_p_joint
-    rx78_Null_057_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_066_joint : {p: 1000000.000000, i: 500.000000, d: 200000.000000}    # mimic joint of larm_elbow_p_joint
-    rx78_Null_064_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_063_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_061_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_060_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_068_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_088_joint : {p: 10000000.000000, i: 100000.000000, d: 1000000.000000}    # mimic joint of rleg_knee_p_joint
-    rx78_Null_084_joint : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_p_joint
-    rx78_Null_080_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_070_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_071_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_072_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_073_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_074_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_075_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_076_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_077_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of larm_gripper_joint
-    rx78_Null_078_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_079_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_016_joint : {p: 20000000.000000, i: 10000.000000, d: 2000000.000000}    # mimic joint of torso_waist_p_joint
-    rx78_Null_023_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_022_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_021_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_027_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_026_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_025_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_024_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_029_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
-    rx78_Null_028_joint : {p: 100000.000000, i: 100.000000, d: 500.000000}    # mimic joint of rarm_gripper_joint
+    torso_waist_y : {p: 20000000.000000, i: 10000.000000, d: 1000000.000000}
+    rleg_ankle_r : {p: 100000000.000000, i: 5000.000000, d: 500000.000000}
+    rleg_crotch_p : {p: 400000000.000000, i: 4000000.000000, d: 500000.000000}
+    lleg_crotch_p_front_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_p_joint
+    rleg_ankle_p_mimic : {p: 500000.000000, i: 500.000000, d: 50000.000000}    # mimic joint of rleg_ankle_p_joint
+    rleg_crotch_p_back_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_p_joint
+    rleg_crotch_r_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_r_joint
+    lleg_crotch_p_back_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_p_joint
+    lleg_ankle_r_mimic : {p: 100000000.000000, i: 1000000.000000, d: 50000.000000}    # mimic joint of lleg_ankle_r_joint
+    lleg_crotch_r_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of lleg_crotch_r_joint
+    lleg_ankle_p_mimic : {p: 500000.000000, i: 500.000000, d: 50000.000000}    # mimic joint of lleg_ankle_p_joint
+    rarm_gripper_thumb2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    larm_gripper_index0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    rarm_gripper_thumb1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    larm_gripper_thumb2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_thumb1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_index2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_index1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_middle0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    rleg_crotch_p_front_mimic : {p: 50000.000000, i: 500.000000, d: 5000.000000}    # mimic joint of rleg_crotch_p_joint
+    rarm_gripper_ring2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    larm_gripper_middle1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_middle2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_ring0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_ring1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_ring2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_little0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_little1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    larm_gripper_little2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of larm_gripper_joint
+    rarm_gripper_ring0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_ring1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rleg_ankle_r_mimic : {p: 100000000.000000, i: 1000000.000000, d: 50000.000000}    # mimic joint of rleg_ankle_r_joint
+    rarm_gripper_middle2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_middle1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_middle0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_little0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_index2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_index1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_index0_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_little2_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
+    rarm_gripper_little1_mimic : {p: 100000.000000, i: 100.000000, d: 100.000000}    # mimic joint of rarm_gripper_joint
   constraints:
     goal_time: 0.6
     stopped_velocity_tolerance: 0.05
@@ -458,3 +491,4 @@ fullbody_controller:
   stop_trajectory_duration: 0.5
   state_publish_rate:  125
   action_monitor_rate: 10
+  allow_partial_joints_goal: true

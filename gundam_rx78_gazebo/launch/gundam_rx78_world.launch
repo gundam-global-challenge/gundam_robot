@@ -1,44 +1,37 @@
 <launch>
-
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
-  <arg name="paused" default="true"/>
-  <arg name="use_sim_time" default="true"/>
-  <arg name="gui" default="true"/>
-  <arg name="headless" default="false"/>
-  <arg name="debug" default="false"/>
+  <arg name="gazebo_paused" default="true" doc="start gazebo with paused mode, DO NOT CHANGE THIS" />
+  <arg name="paused" default="false" doc="set true to start gazebo with paused mode" />
+  <arg name="use_sim_time" default="true" doc="use simulation clock" />
+  <arg name="gui" default="true" doc="launch gzclient, GUI for gazebo simulation" />
+  <arg name="headless" default="false" doc="run gazebo with headless mode" />
+  <arg name="debug" default="false" doc="run gazebo with debug mode" />
 
-  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find gundam_rx78_gazebo)/worlds/gundam_rx78.world"/>
-    <arg name="debug" value="$(arg debug)" />
-    <arg name="gui" value="$(arg gui)" />
-    <arg name="paused" value="$(arg paused)"/>
-    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
-    <arg name="headless" value="$(arg headless)"/>
-  </include>
-
-  <!-- Load the URDF into the ROS Parameter Server -->
-  <include file="$(find gundam_rx78_description)/launch/upload.launch" />
+  <!-- Start empty_world -->
+  <include file="$(find gundam_rx78_gazebo)/launch/empty_world.xml" pass_all_args="true" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
         args="-urdf -model GGC_TestModel_rx78_20170112 -param robot_description
-              -z 12
+              -z 0.3 -P -0.1
 
               -J larm_shoulder_p  0.1
               -J larm_shoulder_r  0.3
               -J larm_shoulder_y -0.1
               -J larm_elbow_p    -0.1
+	      -J larm_elbow_p2    -0.1
 
               -J rarm_shoulder_p  0.1
               -J rarm_shoulder_r -0.3
               -J rarm_shoulder_y  0.1
               -J rarm_elbow_p    -0.1
+	      -J rarm_elbow_p2    -0.1
 
               -J lleg_crotch_p   -0.35
               -J lleg_crotch_r    0.2
               -J lleg_crotch_y    0.35
               -J lleg_knee_p      0.2
+	      -J lleg_knee_p2      0.2
               -J lleg_ankle_p     0.05
               -J lleg_ankle_r    -0.05
 
@@ -46,6 +39,7 @@
               -J rleg_crotch_r   -0.1
               -J rleg_crotch_y   -0.15
               -J rleg_knee_p      0.05
+	      -J rleg_knee_p2      0.05
               -J rleg_ankle_p    -0.2
               -J rleg_ankle_r     0.1
 
@@ -54,11 +48,4 @@
               " />
   <!-- ros_control gundam_rx78 launch file -->
   <include file="$(find gundam_rx78_control)/launch/gundam_rx78_control.launch" />
-
-  <!-- forwards odometry information to tf -->
-  <node pkg="fake_localization" name="fake_localization"  type="fake_localization" output="screen" >
-    <remap from="base_pose_ground_truth" to="base_link_ground_truth" />
-    <param name="~base_frame_id" value="base_link" />
-    <param name="~odom_frame_id" value="base_link" />
-  </node>
 </launch>

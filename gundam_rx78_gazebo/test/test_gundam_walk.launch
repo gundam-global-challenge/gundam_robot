@@ -1,0 +1,18 @@
+<launch>
+  <arg name="gui" default="false" doc="launch gzclient, GUI for gazebo simulation" />
+
+  <!-- start gazebo with an empty plane -->
+  <include file="$(find gundam_rx78_gazebo)/launch/gundam_rx78_walk.launch" >
+    <arg name="gui" default="$(arg gui)"/>
+    <arg name="headless" default="true"/>
+  </include>
+
+  <node name="walk_foward" pkg="gundam_rx78_control" type="joint_trajectory_client_csv.py"
+        args="$(find gundam_rx78_control)/sample/csv/walk-forward.csv --" />
+
+  <!-- test initial pose -->
+  <test test-name="check_walk_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py" time-limit="80" />
+
+</launch>
+

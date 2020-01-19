@@ -20,12 +20,37 @@ To run a gazebo dynamics simulation, you can start `gundam_rx78_world.launch`.
 $ roslaunch gundam_rx78_gazebo gundam_rx78_world.launch
 ```
 
-If the gazebo simulation GUI is launched, You must start `start` button on the bottom of the gazebo UI to start dynamics calculation.
-
 To control joint angles, try a sample script.
 
 ```
+# move upper body
 $ rosrun gundam_rx78_control joint_trajectory_client_example.py
+```
+
+Experimental
+------------
+
+You can run "Robot"-like walking pattern on simulation
+
+```
+$ roslaunch gundam_rx78_gazebo gundam_rx78_walk.launch
+```
+
+```
+# step
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/step.csv
+# walk forward
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-forward.csv
+# walk backward
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-backward.csv
+# walk to right
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-to-right.csv
+# walk to left
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-to-left.csv
+# turn right
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/turn-right.csv
+# turn left
+$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/turn-left.csv
 ```
 
 Note that currently, we have several limitation on this simulation, we only have position controller etc.
@@ -64,6 +89,7 @@ Finally, rename the file name to `urdf/gundam_rx78.urdf`
 
 ```
 $ roscd gundam_rx78_description
-$ python ./scripts/ggc_dae_to_urdf.py GGC_TestModel_rx78_20170112.DAE
+$ python ./scripts/ggc_dae_to_urdf.py GGC_TestModel_rx78_20170112.DAE --write_mesh
 $ mv urdf/GGC_TestModel_rx78_20170112.urdf urdf/gundam_rx78.urdf
 ```
+You have to use urdf_parser_py version 0.4.0 instead of version 0.4.1.

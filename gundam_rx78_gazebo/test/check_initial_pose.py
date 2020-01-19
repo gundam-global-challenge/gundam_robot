@@ -52,8 +52,8 @@ class TestInitialPose(unittest.TestCase):
                       "rot: {:6.3f} {:6.3f} {:6.3f}".format(rot[0], rot[1], rot[2]))
 
         # check position
-        if (abs(pos[0]) < 1.0 and abs(pos[1]) < 1.0 and abs(pos[2] - 10) < 2.0 and
-                abs(rot[0]) < 1.0 and abs(rot[1]) < 1.0 and abs(rot[2]) < 0.5):
+        if (abs(pos[0]) < 1.0 and abs(pos[1]) < 1.0 and abs(pos[2]) < 1.0 and
+                abs(rot[0]) < 0.5 and abs(rot[1]) < 0.5 and abs(rot[2]) < 0.5):
             self.base_success = True
 
     def test_initial_pose(self):

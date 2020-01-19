@@ -11,7 +11,7 @@ catkin_package()
 #############
 ## Install ##
 #############
-install(DIRECTORY launch worlds
+install(DIRECTORY launch worlds test
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
    USE_SOURCE_PERMISSIONS
    )
@@ -27,6 +27,7 @@ if(CATKIN_ENABLE_TESTING)
   endforeach()
 
   add_rostest(test/test_gundam_spawn.launch)
+  add_rostest(test/test_gundam_walk.launch)
   set(ROSLINT_PYTHON_OPTS --max-line-length=180)
   roslint_python()
   roslint_add_test()

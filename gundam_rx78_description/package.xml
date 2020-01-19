@@ -13,6 +13,7 @@
 
   <author>Association GUNDAM GLOBAL CHALLENGE</author>
   <author email="kei.okada@gmail.com">Kei Okada</author>
+  <author email="hiraoka@jsk.imi.i.u-tokyo.ac.jp">Naoki Hiraoka</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
