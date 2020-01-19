@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gundam_rx78_control)
 
-find_package(catkin REQUIRED COMPONENTS controller_interface joint_trajectory_controller pluginlib roslint)
+find_package(catkin REQUIRED COMPONENTS controller_interface joint_trajectory_controller pluginlib)
 
 ###################################
 ## catkin specific configuration ##
@@ -45,7 +45,7 @@ install(FILES joint_trajectory_controller.xml
 ## Testing ##
 #############
 if(CATKIN_ENABLE_TESTING)
-  find_package(catkin REQUIRED COMPONENTS roslaunch)
+  find_package(catkin REQUIRED COMPONENTS roslaunch roslint)
   file(GLOB LAUNCH_FILES launch/*.launch)
   foreach(LAUNCH_FILE ${LAUNCH_FILES})
     roslaunch_add_file_check(${LAUNCH_FILE})
