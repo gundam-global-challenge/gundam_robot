@@ -23,6 +23,7 @@
 
   <!-- for joint_trajectory_controller -->
   <depend>controller_interface</depend>
+  <depend>joint_trajectory_controller</depend>
   <depend>pluginlib</depend>
 
   <test_depend>roslaunch</test_depend>

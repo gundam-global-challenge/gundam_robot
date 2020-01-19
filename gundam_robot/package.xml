@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>gundam_robot</name>
+  <version>0.0.1</version>
+  <description>gundam_robot is a meta package for GUNDAM RX-78 robot controller and simulator</description>
+
+  <maintainer email="kei.okada@gmail.com">Kei Okada</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/gundam_robot</url>
+
+  <author email="kei.okada@gmail.com">Kei Okada</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>gundam_rx78_control</exec_depend>
+  <exec_depend>gundam_rx78_description</exec_depend>
+  <exec_depend>gundam_rx78_gazebo</exec_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

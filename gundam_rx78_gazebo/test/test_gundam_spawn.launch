@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- start gazebo with an empty plane -->
+  <include file="$(find gundam_rx78_gazebo)/launch/gundam_rx78_world.launch" >
+    <arg name="gui" default="false"/>
+    <arg name="headless" default="true"/>
+  </include>
+
+  <node name="start_simulator" pkg="gundam_rx78_gazebo" type="start_simulator.py" />
+
+  <!-- test joint state -->
+  <param name="joint_states_hz_test/topic" value="joint_states" />
+  <param name="joint_states_hz_test/hz" value="50.0" />
+  <param name="joint_states_hz_test/hzerror" value="15.0" />
+  <param name="joint_states_hz_test/test_duration" value="5.0" />
+  <test test-name="joint_states_test" pkg="rostest" type="hztest" name="joint_states_hz_test" />
+
+  <!-- test initial pose -->
+  <test test-name="check_initial_pose" pkg="gundam_rx78_gazebo"
+        type="check_initial_pose.py" time-limit="20" />
+
+</launch>
+
