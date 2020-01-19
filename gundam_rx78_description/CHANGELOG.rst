@@ -2,6 +2,19 @@
 Changelog for package gundam_rx78_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add more examples by @Naoki-Hiraoka (`#6 <https://github.com/gundam-global-challenge/gundam_robot/issues/6>`_)
+
+  * fix some parameters
+  * use mesh for collision
+  * update mesh collada model with Naoki-Hiraoka:simplify-urdf
+  * Simplify URDF (simplify, scale and mergenode collada)
+    - calculate mass property from convex_hull
+    - fix check_position, now base_link is the center of foot
+
+* Contributors: Kei Okada, Naoki Hiraoka
+
 0.0.1 (2019-07-01)
 ------------------
 * Add gundam RX-79 Description (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)

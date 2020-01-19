@@ -2,6 +2,23 @@
 Changelog for package gundam_rx78_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add more examples by @Naoki-Hiraoka (`#6 <https://github.com/gundam-global-challenge/gundam_robot/issues/6>`_)
+
+  * Merge https://github.com/gundam-global-challenge/gundam_robot/pull/4  with test code
+  * add test to check walk-forward.csv
+  * add gundam_rx78_walk.launch
+  * install test directory
+  * start gazebo simulation clock by default
+  * Simplify URDF (simplify, scale and mergenode collada)
+    - calculate mass property from convex_hull
+    - fix check_position, now base_link is the center of foot
+
+* add test code and meta package (`#5 <https://github.com/gundam-global-challenge/gundam_robot/issues/5>`_)
+
+* Contributors: Kei Okada, Naoki Hiraoka
+
 0.0.1 (2019-07-01)
 ------------------
 * Add first gundam gazebon simulator (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)

@@ -2,6 +2,24 @@
 Changelog for package gundam_rx78_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Add more examples by @Naoki-Hiraoka (`#6 <https://github.com/gundam-global-challenge/gundam_robot/issues/6>`_)
+
+  * Merge https://github.com/gundam-global-challenge/gundam_robot/pull/4  with test code
+  * fix some parameters
+  * add python sample (walk motion)
+  * Simplify URDF (simplify, scale and mergenode collada)
+    - calculate mass property from convex_hull
+    - fix check_position, now base_link is the center of foot
+
+* add test code and meta package (`#5 <https://github.com/gundam-global-challenge/gundam_robot/issues/5>`_)
+
+  * roslint only used in CATKIN_ENABLE_TESTING
+  * add joint_trajectory_controller to depends and find_package
+
+* Contributors: Kei Okada, Naoki Hiraoka
+
 0.0.1 (2019-07-01)
 ------------------
 * Add controllers for gundom robot (`#1 <https://github.com/gundam-global-challenge/gundam_robot/issues/1>`_)
