@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(gundam_rx78_control)
 
-find_package(catkin REQUIRED COMPONENTS pluginlib roslint)
+find_package(catkin REQUIRED COMPONENTS controller_interface joint_trajectory_controller pluginlib roslint)
 
 ###################################
 ## catkin specific configuration ##
 ###################################
 catkin_package(
-  CATKIN_DEPENDS pluginlib
+  CATKIN_DEPENDS controller_interface joint_trajectory_controller pluginlib
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
   )
