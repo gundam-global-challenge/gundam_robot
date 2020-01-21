@@ -1,4 +1,5 @@
-# gundam_robot
+gundam_robot [![Build Status](https://travis-ci.com/gundam-global-challenge/gundam_robot.svg?branch=master)](https://travis-ci.com/gundam-global-challenge/gundam_robot)
+========================================================================================================================================================================
 ROS packages for GUNDAM robots
 
 ![GUNDAM Gazebo Simulation](img/gundam_rx78_world.png)
