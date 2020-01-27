@@ -7,12 +7,11 @@
     <arg name="headless" default="true"/>
   </include>
 
-  <node name="walk_foward" pkg="gundam_rx78_control" type="joint_trajectory_client_csv.py"
-        args="$(find gundam_rx78_control)/sample/csv/walk-forward.csv --" />
-
   <!-- test initial pose -->
-  <test test-name="check_walk_pose" pkg="gundam_rx78_gazebo"
-        type="check_walk_pose.py" time-limit="80" />
+  <test test-name="check_walk_forward_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 4.5 0.0 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/walk-forward.csv"
+        time-limit="80" />
 
 </launch>
 
