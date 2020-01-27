@@ -13,5 +13,36 @@
         args="--pos 4.5 0.0 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/walk-forward.csv"
         time-limit="80" />
 
+  <test test-name="check_walk_backward_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos -4.5 0.0 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/walk-backward.csv"
+        time-limit="80" />
+
+  <test test-name="check_turn_right_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 0.0 0.0 -2.0 --rot 0 0 -0.5 $(find gundam_rx78_control)/sample/csv/turn-right.csv"
+        time-limit="80" />
+
+  <test test-name="check_turn_left_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 0.0 0.0 -2.0 --rot 0 0 0.5 $(find gundam_rx78_control)/sample/csv/turn-left.csv"
+        time-limit="80" />
+
+  <test test-name="check_walk_to_right_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 0.0 -4.5 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/walk-to-right.csv"
+        time-limit="80" />
+
+  <test test-name="check_walk_to_left_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 0.0 4.5 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/walk-to-left.csv"
+        time-limit="80" />
+
+  <!-- step goes [0, 1.5, -2.0] -> [0, -1.5, -2.0] -->
+  <test test-name="check_step_pose" pkg="gundam_rx78_gazebo"
+        type="check_walk_pose.py"
+        args="--pos 0.0 -1.5 -2.0 --rot 0 0 0 $(find gundam_rx78_control)/sample/csv/step.csv"
+        time-limit="80" />
+
 </launch>
 
