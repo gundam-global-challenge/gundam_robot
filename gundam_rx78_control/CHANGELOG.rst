@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.3 (2020-01-28)
+------------------
 * fix walk demo (`#8 <https://github.com/gundam-global-challenge/gundam_robot/issues/8>`_)
 * Contributors: Naoki Hiraoka
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>gundam_robot</name>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
   <description>gundam_robot is a meta package for GUNDAM RX-78 robot controller and simulator</description>
 
   <maintainer email="kei.okada@gmail.com">Kei Okada</maintainer>

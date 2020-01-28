@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.3 (2020-01-28)
+------------------
 * add more walking tests (`#8 <https://github.com/gundam-global-challenge/gundam_robot/issues/8>`_)
 
   * update travis.yml
