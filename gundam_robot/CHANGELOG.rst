@@ -2,6 +2,9 @@
 Changelog for package gundam_robot
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.0.2 (2020-01-20)
 ------------------
 * add gundam_robot meta package (`#5 <https://github.com/gundam-global-challenge/gundam_robot/issues/5>`_)

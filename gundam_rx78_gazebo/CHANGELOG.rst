@@ -2,6 +2,15 @@
 Changelog for package gundam_rx78_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add more walking tests (`#8 <https://github.com/gundam-global-challenge/gundam_robot/issues/8>`_)
+
+  * update travis.yml
+  * fix check_walk_pose.py to take target pos/ros as argument and also takes walking pattern fiels
+
+* Contributors: Kei Okada
+
 0.0.2 (2020-01-20)
 ------------------
 * Add more examples by @Naoki-Hiraoka (`#6 <https://github.com/gundam-global-challenge/gundam_robot/issues/6>`_)
