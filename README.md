@@ -1,4 +1,5 @@
-# gundam_robot
+gundam_robot [![Build Status](https://travis-ci.com/gundam-global-challenge/gundam_robot.svg?branch=master)](https://travis-ci.com/gundam-global-challenge/gundam_robot)
+========================================================================================================================================================================
 ROS packages for GUNDAM robots
 
 ![GUNDAM Gazebo Simulation](img/gundam_rx78_world.png)
@@ -38,19 +39,19 @@ $ roslaunch gundam_rx78_gazebo gundam_rx78_walk.launch
 
 ```
 # step
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/step.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/step.csv
 # walk forward
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-forward.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/walk-forward.csv
 # walk backward
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-backward.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/walk-backward.csv
 # walk to right
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-to-right.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/walk-to-right.csv
 # walk to left
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/walk-to-left.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/walk-to-left.csv
 # turn right
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/turn-right.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/turn-right.csv
 # turn left
-$ rosrun gundam_rx78_control joint_trajectory_client.py `rospack find gundam_rx78_control`/sample/csv/turn-left.csv
+$ rosrun gundam_rx78_control joint_trajectory_client_csv.py `rospack find gundam_rx78_control`/sample/csv/turn-left.csv
 ```
 
 Note that currently, we have several limitation on this simulation, we only have position controller etc.
