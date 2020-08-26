@@ -89,6 +89,7 @@ def main(filename):
         rospy.logerr("Timed out waiting for JTA")
     rospy.loginfo("Exitting...")
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Reading CSV trajectory data and send to the robot.')
     parser.add_argument('filename', type=str, nargs=1,
