@@ -110,5 +110,6 @@ def main():
         rospy.logerr("Timed out waiting for JTA")
     rospy.loginfo("Exitting...")
 
+
 if __name__ == "__main__":
     main()

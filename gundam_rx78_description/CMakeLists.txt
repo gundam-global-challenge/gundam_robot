@@ -26,7 +26,7 @@ if(CATKIN_ENABLE_TESTING)
     roslaunch_add_file_check(${LAUNCH_FILE})
   endforeach()
 
-  set(ROSLINT_PYTHON_OPTS --max-line-length=220 --ignore=E131) # skip continuation line unaligned for hanging indent
+  set(ROSLINT_PYTHON_OPTS --max-line-length=220 --ignore=W504,W605,E131,E741,E711,E722) # skip continuation line unaligned for hanging indent
   roslint_python()
   roslint_add_test()
 endif()
