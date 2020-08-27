@@ -603,6 +603,7 @@ def write_control_file(joints_dict):
     f.write('  action_monitor_rate: 10\n')
     f.write('  allow_partial_joints_goal: true\n')
 
+
 global robot, args
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
