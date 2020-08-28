@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.4 (2020-08-28)
+------------------
 * add missing config directory ton cmake install target (`#12 <https://github.com/gundam-global-challenge/gundam_robot/issues/12>`_)
 * add noetic test (`#14 <https://github.com/gundam-global-challenge/gundam_robot/issues/14>`_)
 * remove deprecated nodes/syntax (`#13 <https://github.com/gundam-global-challenge/gundam_robot/issues/13>`_)

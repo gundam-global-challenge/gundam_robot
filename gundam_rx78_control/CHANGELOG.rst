@@ -2,8 +2,8 @@
 Changelog for package gundam_rx78_control
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.0.4 (2020-08-28)
+------------------
 * put 2 blank lines after class definition (`#14 <https://github.com/gundam-global-challenge/gundam_robot/issues/14>`_)
 * Contributors: Kei Okada
 
