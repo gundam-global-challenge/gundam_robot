@@ -2,6 +2,20 @@
 Changelog for package gundam_rx78_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* add missing config directory ton cmake install target (`#12 <https://github.com/gundam-global-challenge/gundam_robot/issues/12>`_)
+* add noetic test (`#14 <https://github.com/gundam-global-challenge/gundam_robot/issues/14>`_)
+* remove deprecated nodes/syntax (`#13 <https://github.com/gundam-global-challenge/gundam_robot/issues/13>`_)
+
+  * use joint_state_publisher_gui and robot_state_publisher to remove depracated warning message
+  * ignore E741 ambiguous variable name, E722, do not use bare except, E711  comparison to None should be 'if cond is not None:
+  W504 line break after binary operator, W605 invalid escape sequence '\-'
+  * put 2 blank lines after class definition
+  * use joint_state_publisher_gui and robot_state_publisher to remove depracated warning message, closes `#10 <https://github.com/gundam-global-challenge/gundam_robot/issues/10>`_
+
+* Contributors: Kei Okada
+
 0.0.3 (2020-01-28)
 ------------------
 

@@ -2,6 +2,11 @@
 Changelog for package gundam_rx78_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* skip test_gundam_spawn/test_gundam_walk for kinetic (`#14 <https://github.com/gundam-global-challenge/gundam_robot/issues/14>`_)
+* Contributors: Kei Okada
+
 0.0.3 (2020-01-28)
 ------------------
 * add more walking tests (`#8 <https://github.com/gundam-global-challenge/gundam_robot/issues/8>`_)
